@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ETN - Simulator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="predefined.html">Predefined Cast</a></li>
+            </ul>
+        </nav>
+    </header>
+</head>
+<body>
+    <div id="current-title">
+        <h1 id="title-text">Select your dream cast</h1>
+    </div>
+    <div id="main-content">
+        <div class="search-controls">
+            <input id="contestant-search" type="search" placeholder="Search...">
+            <div id="search-dropdown" class="dropdown"></div>
+            <button id="random-contestant" onclick="randomContestant()">Random Contestant</button>
+        </div>
+        <hr>
+        <section id="current-cast">
+            <p>No contestants have been added...</p>
+        </section>
+        <hr>
+        <div id="add-custom-contestant">
+            <input type="text" id="custom-name" placeholder="Enter contestant name" />
+            <input type="file" id="custom-image" accept="image/*" />
+            <button onclick="addCustomContestant()">Add Contestant</button>
+        </div>
+        <button id="simulation-start"onclick="startSimulation()">Start Simulation</button>
+    </div>
+    <script src="javascript/script.js"></script>
+</body>
+</html>

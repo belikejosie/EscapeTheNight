@@ -1,0 +1,397 @@
+/* Global box-sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    backdrop-filter: blur(5px);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('../image/bg.webp');
+    font-family: 'Roboto', sans-serif;
+
+    display: flex;
+    flex-direction: column;        /* stack children vertically */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+}
+
+#current-title {
+    max-width: 950px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 20px;       /* margin below only */
+    color: #fff;
+    text-shadow: 0 0 5px rgba(0,0,0,0.7);
+}
+
+#main-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    max-width: 950px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.search-controls input[type="search"] {
+    flex-grow: 1;
+    max-width: 300px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: inset 0 0 5px rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.1);
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.search-controls input[type="search"] {
+    flex-grow: 1;
+    max-width: 300px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: inset 0 0 5px rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.1);
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.search-controls input[type="search"]::placeholder {
+    color: #ccc;
+}
+
+.search-controls input[type="search"]:focus,
+.search-controls input[type="search"]:focus-visible {
+    background-color: rgba(255,255,255,0.2);
+    outline: 2px solid #be9871;
+    outline-offset: 2px;
+}
+
+.search-controls button {
+    padding: 10px 20px;
+    background-color: #be9871;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 6px rgb(173, 127, 79);
+}
+
+.search-controls button:hover,
+.search-controls button:focus-visible {
+    background-color: #AD7F4FFF;
+    box-shadow: 0 2px 6px rgb(190, 152, 113);
+    outline: none;
+}
+
+#current-cast {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.cast-item {
+    background-color: rgba(255, 255, 255, 0.23);
+    border-radius: 10px;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+}
+
+.cast-item .remove-btn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 4px;
+    margin-top: 5px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+
+.cast-item .remove-btn:hover,
+.cast-item .remove-btn:focus-visible {
+    color: #be9871;
+    outline: none;
+}
+
+.cast-item img {
+    max-width: 100px;
+    border-radius: 20px;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.cast-item p {
+    margin: 0;
+    text-align: center;
+    color: #fff;
+}
+
+#main-content > button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: #be9871;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgb(173, 127, 79);
+    transition: background-color 0.3s ease;
+}
+
+#main-content > button:hover,
+#main-content > button:focus-visible {
+    background-color: #AD7F4FFF;
+    box-shadow: 0 2px 6px rgb(190, 152, 113);
+    outline: none;
+}
+
+#grid > button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    background-color: #be9871;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgb(173, 127, 79);
+    transition: background-color 0.3s ease;
+}
+
+#grid > button:hover,
+#grid > button:focus-visible {
+    background-color: #AD7F4FFF;
+    box-shadow: 0 2px 6px rgb(190, 152, 113);
+    outline: none;
+}
+
+#grid > button:hover,
+#grid > button:focus-visible {
+    background-color: #AD7F4FFF;
+    box-shadow: 0 2px 6px rgb(190, 152, 113);
+    outline: none;
+}
+
+#main-content img {
+    max-width: 100px;
+    border-radius: 20px;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+hr {
+    border: none;
+    height: 4px; /* Increase height */
+    background: linear-gradient(90deg, #be9871, #AD7F4FFF);
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 0 8px #be9871;
+    width: 100%; /* Ensure it's full width of its container */
+}
+
+@media (max-width: 600px) {
+    .cast-item {
+        width: 100px;
+    }
+
+    .input[type="search"] {
+        max-width: 100%;
+    }
+}
+
+#search-dropdown {
+    position: absolute;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    width: 300px;
+    max-height: 200px;
+    overflow-y: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    z-index: 1000;
+    margin-top: 5px;
+    display: none;
+}
+
+#search-dropdown div {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+#search-dropdown div:hover {
+    background-color: #be9871;
+    color: black;
+}
+
+header {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    padding: 10px 0;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-list li a:hover,
+.nav-list li a:focus-visible {
+    background-color: #be9871;
+    color: #000;
+    outline: none;
+}
+
+@media (max-width: 600px) {
+    .nav-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+#hidden {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#add-custom-contestant {
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 10px rgba(190, 152, 113, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+#add-custom-contestant input[type="text"],
+#add-custom-contestant input[type="file"] {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    box-shadow: inset 0 0 5px rgba(255,255,255,0.2);
+    outline: none;
+}
+
+#add-custom-contestant input[type="file"]::file-selector-button {
+    padding: 5px 5px;
+    background-color: #be9871;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size:12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 6px rgb(173, 127, 79);
+}
+
+#add-custom-contestant input[type="text"]::placeholder {
+    color: #ccc;
+}
+
+#add-custom-contestant button {
+    padding: 10px 20px;
+    background-color: #be9871;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 6px rgb(173, 127, 79);
+}
+
+#add-custom-contestant button:hover,
+#add-custom-contestant button:focus-visible {
+    background-color: #AD7F4FFF;
+    box-shadow: 0 2px 6px rgb(190, 152, 113);
+    outline: none;
+}
