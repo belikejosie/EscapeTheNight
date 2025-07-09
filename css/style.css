@@ -403,3 +403,27 @@ h2 {
     box-shadow: 0 2px 6px rgb(190, 152, 113);
     outline: none;
 }
+
+#discord-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #5865F2;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    text-decoration: none;
+    font-size: 24px;
+    transition: transform 0.2s ease;
+}
+
+#discord-button:hover {
+    transform: scale(1.1);
+    background-color: #4752C4;
+}
