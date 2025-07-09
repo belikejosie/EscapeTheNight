@@ -610,6 +610,7 @@ function determinePoisoned() {
     if (successRate < 50) {
         currentcast = currentcast.filter(c => c !== poisoned);
         deadcast.push(poisoned);
+        poisoned.deathepisode = currentepisode;
         scene.paragraph(`The guests fail to get the cure in time, and ${poisoned.name} dies....`);
     } else {
         scene.paragraph(`The guests succeed to get the cure in time, and ${poisoned.name} is cured!`);
