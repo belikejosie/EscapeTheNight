@@ -1,1 +1,1112 @@
-const _0x4f6694=_0x1ad1;(function(_0x381478,_0x320cb0){const _0x2cea84=_0x1ad1,_0x40f5c1=_0x381478();while(!![]){try{const _0x5ea4e1=parseInt(_0x2cea84(0x251))/0x1+-parseInt(_0x2cea84(0x1d3))/0x2*(-parseInt(_0x2cea84(0x1f7))/0x3)+-parseInt(_0x2cea84(0x2ac))/0x4+-parseInt(_0x2cea84(0x2c4))/0x5+-parseInt(_0x2cea84(0x1fd))/0x6*(-parseInt(_0x2cea84(0x217))/0x7)+parseInt(_0x2cea84(0x205))/0x8*(parseInt(_0x2cea84(0x23e))/0x9)+-parseInt(_0x2cea84(0x219))/0xa;if(_0x5ea4e1===_0x320cb0)break;else _0x40f5c1['push'](_0x40f5c1['shift']());}catch(_0x338f5a){_0x40f5c1['push'](_0x40f5c1['shift']());}}}(_0x31c9,0x6b5fe));if(window[_0x4f6694(0x1d2)][_0x4f6694(0x23d)][_0x4f6694(0x27f)]('index')){function addCustomContestant(){const _0x50ec00=_0x4f6694,_0x5ad7ee=document[_0x50ec00(0x21a)](_0x50ec00(0x255)),_0x1806f5=document[_0x50ec00(0x21a)](_0x50ec00(0x249)),_0x5661cd=_0x5ad7ee[_0x50ec00(0x2c8)][_0x50ec00(0x29c)]();if(!_0x5661cd){alert(_0x50ec00(0x1d9));return;}let _0x323921='image/SAE_Logo.webp';if(_0x1806f5[_0x50ec00(0x207)][_0x50ec00(0x24a)]>0x0){const _0x49ee6e=new FileReader();_0x49ee6e[_0x50ec00(0x1d0)]=function(_0x17045f){const _0x2ee5c0=_0x50ec00;_0x323921=_0x17045f[_0x2ee5c0(0x1ea)]['result'];const _0x4ef65c=new Contestant(_0x5661cd);_0x4ef65c[_0x2ee5c0(0x1d6)]=_0x323921,currentcast[_0x2ee5c0(0x262)](_0x4ef65c),updateCastScreen(),_0x5ad7ee[_0x2ee5c0(0x2c8)]='',_0x1806f5['value']='';},_0x49ee6e[_0x50ec00(0x1fb)](_0x1806f5[_0x50ec00(0x207)][0x0]);}else{const _0x30514e=new Contestant(_0x5661cd);_0x30514e[_0x50ec00(0x1d6)]=_0x323921,currentcast['push'](_0x30514e),updateCastScreen(),_0x5ad7ee['value']='';}}const searchInput=document[_0x4f6694(0x21a)]('contestant-search'),dropdown=document['getElementById'](_0x4f6694(0x286));searchInput[_0x4f6694(0x1cd)](_0x4f6694(0x243),()=>{const _0x502dd8=_0x4f6694,_0x3dcc52=searchInput[_0x502dd8(0x2c8)][_0x502dd8(0x29c)]()[_0x502dd8(0x2b1)]();if(!_0x3dcc52){dropdown['style'][_0x502dd8(0x27d)]='none',dropdown[_0x502dd8(0x220)]='';return;}const _0x1491e3=allContestants[_0x502dd8(0x1eb)](_0x413cfa=>_0x413cfa['displayName'][_0x502dd8(0x2b1)]()[_0x502dd8(0x27f)](_0x3dcc52));if(_0x1491e3['length']===0x0){dropdown[_0x502dd8(0x236)][_0x502dd8(0x27d)]=_0x502dd8(0x295),dropdown[_0x502dd8(0x220)]='';return;}dropdown[_0x502dd8(0x220)]=_0x1491e3[_0x502dd8(0x206)](_0x4fef0e=>_0x502dd8(0x20b)+_0x4fef0e['displayName']+'\x22>'+_0x4fef0e[_0x502dd8(0x22e)]+'</div>')[_0x502dd8(0x250)](''),dropdown[_0x502dd8(0x236)][_0x502dd8(0x27d)]=_0x502dd8(0x1e8),dropdown[_0x502dd8(0x201)](_0x502dd8(0x21b))['forEach'](_0x3a2572=>{const _0xfaa841=_0x502dd8;_0x3a2572[_0xfaa841(0x1cd)](_0xfaa841(0x20f),()=>{const _0x4d57bd=_0xfaa841,_0x514ba3=_0x3a2572['getAttribute']('data-name');searchInput['value']=_0x514ba3;const _0x49ba8c=allContestants[_0x4d57bd(0x21c)](_0x495a98=>_0x495a98[_0x4d57bd(0x22e)]===_0x514ba3);_0x49ba8c&&!currentcast[_0x4d57bd(0x27f)](_0x49ba8c)&&(currentcast[_0x4d57bd(0x262)](_0x49ba8c),updateCastScreen()),dropdown[_0x4d57bd(0x236)]['display']=_0x4d57bd(0x295),dropdown[_0x4d57bd(0x220)]='';});});}),document[_0x4f6694(0x1cd)](_0x4f6694(0x20f),_0x14773f=>{const _0x5562db=_0x4f6694;!searchInput[_0x5562db(0x1cc)](_0x14773f[_0x5562db(0x1ea)])&&!dropdown[_0x5562db(0x1cc)](_0x14773f[_0x5562db(0x1ea)])&&(dropdown[_0x5562db(0x236)][_0x5562db(0x27d)]=_0x5562db(0x295),dropdown[_0x5562db(0x220)]='');});}class Contestant{constructor(_0xa41259,_0x52b5a7=_0x4f6694(0x213)){const _0x3549c0=_0x4f6694;this[_0x3549c0(0x1e9)]=_0xa41259;const _0x5b4e31=!_0x52b5a7||_0x52b5a7===_0x3549c0(0x213)?_0x3549c0(0x213):_0x52b5a7;this[_0x3549c0(0x1d6)]=_0x3549c0(0x240)+_0x5b4e31+_0x3549c0(0x2a5),this['choice']=null,this[_0x3549c0(0x2a7)]=null;}get[_0x4f6694(0x22e)](){const _0x5e5e56=_0x4f6694;return this[_0x5e5e56(0x1e9)];}}class Artifacts{constructor(){const _0x3471fa=_0x4f6694;this['monsters']=[_0x3471fa(0x28d),_0x3471fa(0x242),_0x3471fa(0x270),_0x3471fa(0x252),'clown','demon',_0x3471fa(0x259)],this[_0x3471fa(0x27b)]=['the\x20cursed\x20artifact',_0x3471fa(0x24b),_0x3471fa(0x294),_0x3471fa(0x2a2),_0x3471fa(0x2a9),'the\x20demonic\x20configuration',_0x3471fa(0x26c),_0x3471fa(0x204),'the\x20wickerman\x20doll',_0x3471fa(0x225)],this[_0x3471fa(0x1f4)]=[_0x3471fa(0x2a3),_0x3471fa(0x2ba),_0x3471fa(0x233),'they\x20split\x20into\x20two\x20groups\x20to\x20find\x20a\x20key.','they\x20split\x20into\x20two\x20groups\x20to\x20find\x20a\x20code.',_0x3471fa(0x1f6),_0x3471fa(0x222),_0x3471fa(0x1e0),_0x3471fa(0x25e),_0x3471fa(0x1f1),_0x3471fa(0x2a8),_0x3471fa(0x289),_0x3471fa(0x29f),'they\x20have\x20to\x20figure\x20out\x20which\x20way\x20to\x20go.','they\x20have\x20to\x20find\x20out\x20which\x20box\x20to\x20open.',_0x3471fa(0x200),'they\x20have\x20to\x20get\x20past\x20a\x20monster.','they\x20have\x20to\x20sneak\x20past\x20a\x20monster.','they\x20have\x20to\x20find\x20and\x20kill\x20a\x20monster.',_0x3471fa(0x1fe),_0x3471fa(0x1d4),_0x3471fa(0x266),_0x3471fa(0x29a),_0x3471fa(0x227),'they\x20attempt\x20to\x20get\x20out\x20of\x20a\x20locked\x20room.','they\x20have\x20to\x20create\x20an\x20antidote.',_0x3471fa(0x1ca),_0x3471fa(0x22b),_0x3471fa(0x2b9),_0x3471fa(0x23c),'they\x20have\x20to\x20figure\x20out\x20a\x20password.'];}[_0x4f6694(0x270)](){const _0x395a6f=_0x4f6694,_0x50d9bc=Math['floor'](Math['random']()*this[_0x395a6f(0x23f)][_0x395a6f(0x24a)]);return this[_0x395a6f(0x23f)][_0x50d9bc];}[_0x4f6694(0x245)](){const _0x3dbc60=_0x4f6694,_0x14a40c=Math[_0x3dbc60(0x237)](Math[_0x3dbc60(0x226)]()*this[_0x3dbc60(0x27b)][_0x3dbc60(0x24a)]);return this['artifacts'][_0x14a40c];}['generateNarrative'](_0x46a29f){const _0x47446b=_0x4f6694,_0x402cd8=0x3+Math[_0x47446b(0x237)](Math['random']()*0x3),_0xdf800d=new Set(),_0x5577ae=[];while(_0x5577ae[_0x47446b(0x24a)]<_0x402cd8){const _0x6fd473=Math['floor'](Math[_0x47446b(0x226)]()*this[_0x47446b(0x1f4)][_0x47446b(0x24a)]);!_0xdf800d[_0x47446b(0x212)](_0x6fd473)&&(_0xdf800d[_0x47446b(0x1de)](_0x6fd473),_0x5577ae[_0x47446b(0x262)](this[_0x47446b(0x1f4)][_0x6fd473]));}const _0x5bb4a2=[_0x47446b(0x1f0),_0x47446b(0x253)];for(let _0x1c0e6b=0x0;_0x1c0e6b<_0x5577ae[_0x47446b(0x24a)];_0x1c0e6b++){let _0x42a60c;if(_0x1c0e6b===0x0)_0x42a60c='First,';else{if(_0x1c0e6b===_0x5577ae[_0x47446b(0x24a)]-0x1)_0x42a60c=_0x47446b(0x2c3);else _0x42a60c=_0x47446b(0x253);}_0x46a29f[_0x47446b(0x2ae)](_0x42a60c+'\x20'+_0x5577ae[_0x1c0e6b]);}}}class Discussions{constructor(_0x266d5c,_0x54b02b){const _0x3b218f=_0x4f6694;this[_0x3b218f(0x2aa)]=_0x266d5c,this[_0x3b218f(0x1f9)]=_0x54b02b,this[_0x3b218f(0x2c7)]=this[_0x3b218f(0x2aa)][_0x3b218f(0x1eb)](_0x37fa70=>!_0x54b02b[_0x3b218f(0x27f)](_0x37fa70)),this[_0x3b218f(0x202)]=[_0x19c6d3=>_0x19c6d3['name']+'\x20investigates\x20alone.',_0x3968d4=>_0x3968d4['name']+_0x3b218f(0x218),_0x1e4f37=>_0x1e4f37[_0x3b218f(0x1e9)]+_0x3b218f(0x28f),_0x47cf29=>_0x47cf29['name']+_0x3b218f(0x1df),_0xcd5663=>_0xcd5663[_0x3b218f(0x1e9)]+_0x3b218f(0x1db)],this[_0x3b218f(0x247)]=[_0x5800d1=>_0x5800d1[_0x3b218f(0x1e9)]+'\x20does\x20absolutely\x20nothing.',_0x93edf7=>_0x93edf7[_0x3b218f(0x1e9)]+_0x3b218f(0x1ed),_0x3a006e=>_0x3a006e[_0x3b218f(0x1e9)]+'\x20hums\x20to\x20themselves.',_0xaddbd1=>_0xaddbd1['name']+_0x3b218f(0x24c),_0x4ecf8d=>_0x4ecf8d[_0x3b218f(0x1e9)]+'\x20paces,\x20but\x20never\x20actually\x20helps.'],this[_0x3b218f(0x23a)]=[(_0x3683aa,_0x5bc63a)=>_0x3683aa[_0x3b218f(0x1e9)]+_0x3b218f(0x20a)+_0x5bc63a[_0x3b218f(0x1e9)]+'\x20get\x20into\x20a\x20heated\x20argument.',(_0x106c96,_0x25aff8)=>_0x106c96[_0x3b218f(0x1e9)]+'\x20gets\x20into\x20an\x20alliance\x20with\x20'+_0x25aff8['name']+'.',(_0x1d4add,_0xe1179e)=>_0x1d4add['name']+_0x3b218f(0x20a)+_0xe1179e[_0x3b218f(0x1e9)]+_0x3b218f(0x279),(_0x11a4ce,_0x38ac1c)=>_0x11a4ce[_0x3b218f(0x1e9)]+_0x3b218f(0x2ab)+_0x38ac1c['name']+'\x20into\x20a\x20wall\x20during\x20an\x20argument.',(_0x5b7d2d,_0x5f479f)=>_0x5b7d2d['name']+_0x3b218f(0x1ee)+_0x5f479f[_0x3b218f(0x1e9)]+'.'];}[_0x4f6694(0x235)](){const _0x81b002=_0x4f6694,_0x43a52d=new Scene(),_0x16817b=0x4+Math[_0x81b002(0x237)](Math[_0x81b002(0x226)]()*0x4);for(let _0x2d470f=0x0;_0x2d470f<_0x16817b;_0x2d470f++){const _0x3a5ff8=Math[_0x81b002(0x226)]();if(_0x3a5ff8<0.5){const _0x3e4c7b=this[_0x81b002(0x2b4)](),_0x4c6ebe=this[_0x81b002(0x299)](this[_0x81b002(0x202)])(_0x3e4c7b);_0x43a52d[_0x81b002(0x1d6)](_0x3e4c7b[_0x81b002(0x1d6)]),_0x43a52d[_0x81b002(0x2ae)](_0x4c6ebe);}else{if(_0x3a5ff8<0.75){const _0x3fba7b=this[_0x81b002(0x2b4)](),_0x552a8f=this[_0x81b002(0x299)](this[_0x81b002(0x247)])(_0x3fba7b);_0x43a52d[_0x81b002(0x1d6)](_0x3fba7b['image']),_0x43a52d['paragraph'](_0x552a8f);}else{if(this[_0x81b002(0x2c7)][_0x81b002(0x24a)]>=0x2){const [_0x5706f2,_0xa4a3ed]=this['getTwoDistinctRandomContestants'](),_0x44fa6e=this[_0x81b002(0x299)](this[_0x81b002(0x23a)])(_0x5706f2,_0xa4a3ed),_0x49dca6=document[_0x81b002(0x21a)](_0x81b002(0x1f5)),_0x296da6=document[_0x81b002(0x2b0)]('div');_0x296da6[_0x81b002(0x1ec)]('id','grid'),_0x49dca6['append'](_0x296da6),[_0x5706f2,_0xa4a3ed][_0x81b002(0x288)](_0x1fb7e1=>{const _0x12c97f=_0x81b002,_0x3be453=document['createElement'](_0x12c97f(0x232));_0x3be453[_0x12c97f(0x216)]=_0x1fb7e1['image'],_0x3be453[_0x12c97f(0x1ec)](_0x12c97f(0x2c0),_0x12c97f(0x2c6)),_0x3be453[_0x12c97f(0x272)]=_0x1fb7e1[_0x12c97f(0x1e9)],_0x296da6[_0x12c97f(0x231)](_0x3be453);}),_0x43a52d['paragraph'](_0x44fa6e);}}}}}['getRandom'](_0x152d47){const _0x54ad5d=_0x4f6694;return _0x152d47[Math[_0x54ad5d(0x237)](Math[_0x54ad5d(0x226)]()*_0x152d47['length'])];}[_0x4f6694(0x2b4)](){const _0x1db065=_0x4f6694;return this['availableContestants'][Math['floor'](Math[_0x1db065(0x226)]()*this['availableContestants']['length'])];}[_0x4f6694(0x271)](){const _0x36d63e=_0x4f6694;let _0x4c7ed5=this[_0x36d63e(0x2b4)](),_0x2bb3c0;do{_0x2bb3c0=this[_0x36d63e(0x2b4)]();}while(_0x2bb3c0===_0x4c7ed5);return[_0x4c7ed5,_0x2bb3c0];}}class VotingCeremony{constructor(){const _0x29c512=_0x4f6694;this['currentcast']=currentcast,this[_0x29c512(0x28a)]=[_0x29c512(0x203),'because\x20they\x20don\x27t\x20really\x20like\x20them.',_0x29c512(0x208),'after\x20a\x20major\x20disagreement.',_0x29c512(0x2b8),'because\x20they\x20chose\x20randomly.','because\x20someone\x20else\x20told\x20them\x20to.',_0x29c512(0x1d1),_0x29c512(0x221),_0x29c512(0x1c8)];}[_0x4f6694(0x22f)](){const _0x23e93d=_0x4f6694,_0x318b1d=Math[_0x23e93d(0x237)](Math['random']()*this['votingreasons'][_0x23e93d(0x24a)]);return this[_0x23e93d(0x28a)][_0x318b1d];}[_0x4f6694(0x211)](){const _0x18cf45=_0x4f6694,_0x39ee31=new Scene();_0x39ee31[_0x18cf45(0x1c9)](_0x18cf45(0x228)),this[_0x18cf45(0x2aa)][_0x18cf45(0x288)](_0x273dba=>{const _0x424d15=_0x18cf45,_0xe98a4b=this[_0x424d15(0x2aa)][_0x424d15(0x1eb)](_0x280328=>_0x280328!==_0x273dba),_0x15020f=Math[_0x424d15(0x237)](Math[_0x424d15(0x226)]()*_0xe98a4b['length']),_0x57e22d=_0xe98a4b[_0x15020f];_0x273dba[_0x424d15(0x26a)]=_0x57e22d;const _0x5df2ab=_0x39ee31[_0x424d15(0x275)],_0x447994=document[_0x424d15(0x2b0)]('div');_0x447994['id']='grid',_0x5df2ab[_0x424d15(0x278)](_0x447994);const _0x2a5ebf=document[_0x424d15(0x2b0)]('img');_0x2a5ebf[_0x424d15(0x216)]=_0x273dba[_0x424d15(0x1d6)],_0x2a5ebf[_0x424d15(0x2c0)]=_0x424d15(0x2c6),_0x447994['appendChild'](_0x2a5ebf);const _0x19d822=document['createElement']('img');_0x19d822[_0x424d15(0x216)]=_0x57e22d['image'],_0x19d822[_0x424d15(0x2c0)]=_0x424d15(0x2c6),_0x447994[_0x424d15(0x278)](_0x19d822),_0x39ee31['paragraph'](_0x273dba[_0x424d15(0x1e9)]+_0x424d15(0x277)+_0x57e22d['name']+'\x20'+this[_0x424d15(0x22f)]());});}}class Challenge{constructor(){const _0x361d09=_0x4f6694;this['winnerText']=['easily\x20wins\x20the\x20challenge',_0x361d09(0x234)],this[_0x361d09(0x257)]=[_0x361d09(0x20c),_0x361d09(0x26b),_0x361d09(0x229),'strangles','beats','hangs',_0x361d09(0x21d)];}}class Scene{constructor(_0x20e329){const _0xb94edf=_0x4f6694;this['_main']=document[_0xb94edf(0x21a)]('main-content');}[_0x4f6694(0x21f)](){const _0x269988=_0x4f6694;this[_0x269988(0x275)]['innerHTML']='';}['title'](_0x4fb037){const _0x3fcc75=_0x4f6694;let _0x4bac89=document[_0x3fcc75(0x21a)](_0x3fcc75(0x1cb));_0x4bac89['innerHTML']=_0x4fb037;}['paragraph'](_0x5445e7){const _0x10bfd9=_0x4f6694;let _0x11a875=document[_0x10bfd9(0x2b0)]('p');_0x11a875[_0x10bfd9(0x220)]=_0x5445e7,this[_0x10bfd9(0x275)]['appendChild'](_0x11a875);}[_0x4f6694(0x1d6)](_0x60a8e5){const _0x518b3c=_0x4f6694;let _0xcc2fa9=document[_0x518b3c(0x2b0)](_0x518b3c(0x232));_0xcc2fa9[_0x518b3c(0x216)]=_0x60a8e5,_0xcc2fa9[_0x518b3c(0x1ec)](_0x518b3c(0x2c0),_0x518b3c(0x2c6)),this[_0x518b3c(0x275)][_0x518b3c(0x278)](_0xcc2fa9);}[_0x4f6694(0x241)](_0x414a02,_0x576a80){const _0x47b347=_0x4f6694;let _0x3c8514=document[_0x47b347(0x2b0)]('button');_0x3c8514[_0x47b347(0x220)]=_0x414a02,_0x3c8514[_0x47b347(0x1ec)]('onclick',_0x576a80),this['_main'][_0x47b347(0x278)](_0x3c8514);}}const joeygraceffa=new Contestant('Joey\x20Graceffa',_0x4f6694(0x2c1)),evagutowski=new Contestant('Eva\x20Gutowski',_0x4f6694(0x280)),oliwhite=new Contestant(_0x4f6694(0x24f),_0x4f6694(0x2b5)),lelepons=new Contestant(_0x4f6694(0x27a),_0x4f6694(0x26e)),timothydelaghetto=new Contestant(_0x4f6694(0x269),_0x4f6694(0x1f8)),matthaag=new Contestant(_0x4f6694(0x2bd),'MattHaag'),sierrafurtado=new Contestant(_0x4f6694(0x2be),'SierraFurtado'),glozellgreen=new Contestant(_0x4f6694(0x2b7),_0x4f6694(0x1f3)),justineezarik=new Contestant(_0x4f6694(0x2a4),_0x4f6694(0x263)),andreabrooks=new Contestant(_0x4f6694(0x1fa),_0x4f6694(0x2bc)),shanedawson=new Contestant(_0x4f6694(0x246),_0x4f6694(0x29e)),season1cast=[joeygraceffa,evagutowski,oliwhite,lelepons,timothydelaghetto,matthaag,sierrafurtado,glozellgreen,justineezarik,andreabrooks,shanedawson],andrearussett=new Contestant(_0x4f6694(0x1e6),'AndreaRussett'),tyleroakley=new Contestant(_0x4f6694(0x1da),'TylerOakley'),alexwassabi=new Contestant(_0x4f6694(0x22a),'AlexWassabi'),gabbiehanna=new Contestant(_0x4f6694(0x260),_0x4f6694(0x2af)),tanamongeau=new Contestant(_0x4f6694(0x29b),_0x4f6694(0x244)),lizakoshy=new Contestant(_0x4f6694(0x2a0),_0x4f6694(0x23b)),destormpower=new Contestant('DeStorm\x20Power','DeStormPower'),jessewellens=new Contestant(_0x4f6694(0x254),_0x4f6694(0x224)),laurenriihimaki=new Contestant('Lauren\x20Riihimaki',_0x4f6694(0x2bf)),season2cast=[joeygraceffa,andrearussett,tyleroakley,alexwassabi,gabbiehanna,tanamongeau,lizakoshy,destormpower,jessewellens,laurenriihimaki],matthewpatrick=new Contestant(_0x4f6694(0x238),'MatthewPatrick'),nikitadragun=new Contestant(_0x4f6694(0x293),_0x4f6694(0x1cf)),mannymua=new Contestant('Manny\x20MUA',_0x4f6694(0x26f)),rosannapansino=new Contestant(_0x4f6694(0x256),_0x4f6694(0x281)),safiyanygaard=new Contestant(_0x4f6694(0x1d7),_0x4f6694(0x261)),colleenballinger=new Contestant(_0x4f6694(0x29d),'ColleenBallinger'),tealadunn=new Contestant(_0x4f6694(0x28e),_0x4f6694(0x210)),guavajuice=new Contestant(_0x4f6694(0x27c),_0x4f6694(0x265)),jccaylen=new Contestant(_0x4f6694(0x1e7),_0x4f6694(0x283)),season3cast=[joeygraceffa,matthewpatrick,nikitadragun,mannymua,rosannapansino,safiyanygaard,colleenballinger,tealadunn,guavajuice,jccaylen],bretmanrock=new Contestant('Bretman\x20Rock',_0x4f6694(0x268)),season4cast=[joeygraceffa,colleenballinger,bretmanrock,rosannapansino,alexwassabi,gabbiehanna,tanamongeau,destormpower,timothydelaghetto,justineezarik],moviecast=[joeygraceffa,rosannapansino,tanamongeau,matthewpatrick,nikitadragun,bretmanrock,lelepons],allContestants=[joeygraceffa,evagutowski,oliwhite,lelepons,timothydelaghetto,matthaag,sierrafurtado,glozellgreen,justineezarik,andreabrooks,shanedawson,andrearussett,tyleroakley,alexwassabi,gabbiehanna,tanamongeau,lizakoshy,destormpower,jessewellens,laurenriihimaki,matthewpatrick,nikitadragun,mannymua,rosannapansino,safiyanygaard,colleenballinger,tealadunn,guavajuice,jccaylen,bretmanrock];let currentcast=[],deadcast=[],trappedguests=[],votingPool=[],votedguests=[],currentMonster=null,currentepisode=0x0,remainingartifacts=0x0,forcenone=![],forcetrapped=![],forcepoisoned=![];function randomContestant(){const _0x36e9c5=_0x4f6694,_0x2f0391=allContestants[_0x36e9c5(0x1eb)](_0x42acfa=>!currentcast['includes'](_0x42acfa));if(_0x2f0391[_0x36e9c5(0x24a)]===0x0)return null;const _0x44129f=Math[_0x36e9c5(0x237)](Math[_0x36e9c5(0x226)]()*_0x2f0391['length']),_0x535ffc=_0x2f0391[_0x44129f];return currentcast[_0x36e9c5(0x262)](_0x535ffc),updateCastScreen(),_0x535ffc;}function predefinedCast(_0x5c532c){const _0x3f99ac=_0x4f6694;_0x5c532c[_0x3f99ac(0x288)](_0x2fb3aa=>{const _0x32d554=_0x3f99ac;currentcast[_0x32d554(0x262)](_0x2fb3aa);});if(_0x5c532c===season1cast)forcepoisoned=!![],forcetrapped=![];else{if(_0x5c532c===season2cast)forcepoisoned=![],forcetrapped=!![];else{if(_0x5c532c===season3cast)forcenone=!![],forcepoisoned=![],forcetrapped=![];else _0x5c532c===season4cast&&(forcepoisoned=![],forcetrapped=!![]);}}}function updateCastScreen(){const _0x7a0e2b=_0x4f6694,_0x417be3=document[_0x7a0e2b(0x21a)]('current-cast');_0x417be3[_0x7a0e2b(0x220)]='';if(currentcast['length']===0x0){_0x417be3['innerHTML']='<p>No\x20contestants\x20have\x20been\x20added...</p>';return;}currentcast[_0x7a0e2b(0x288)](_0x4e22bf=>{const _0x21132b=_0x7a0e2b,_0x50f2f5=document['createElement']('div');_0x50f2f5[_0x21132b(0x24d)][_0x21132b(0x1de)](_0x21132b(0x1e1)),_0x50f2f5[_0x21132b(0x220)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20loading=\x22lazy\x22\x20src=\x22'+_0x4e22bf['image']+_0x21132b(0x25f)+_0x4e22bf[_0x21132b(0x22e)]+_0x21132b(0x291)+_0x4e22bf[_0x21132b(0x22e)]+'</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22remove-btn\x22><i\x20class=\x22fas\x20fa-times\x22></i></button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20';const _0x23bb43=_0x50f2f5[_0x21132b(0x276)]('.remove-btn');_0x23bb43[_0x21132b(0x1cd)]('click',()=>{removeContestant(_0x4e22bf);}),_0x417be3['appendChild'](_0x50f2f5);});}function removeContestant(_0x5b6bd8){const _0x1bdaee=_0x4f6694;currentcast=currentcast[_0x1bdaee(0x1eb)](_0x1ddb12=>_0x1ddb12!==_0x5b6bd8),updateCastScreen();}function startSimulation(_0x1c4ad0=null){const _0x33183d=_0x4f6694;_0x1c4ad0!==null&&predefinedCast(_0x1c4ad0);if(currentcast[_0x33183d(0x24a)]<=0x3)alert(_0x33183d(0x2a6));else{remainingartifacts=currentcast[_0x33183d(0x24a)]-0x2;const _0x5c57f1=new Scene();_0x5c57f1[_0x33183d(0x1c9)](_0x33183d(0x248)),_0x5c57f1[_0x33183d(0x21f)](),currentcast[_0x33183d(0x288)](_0x36bc80=>{const _0x41f467=_0x33183d;_0x5c57f1[_0x41f467(0x1d6)](_0x36bc80[_0x41f467(0x1d6)]),_0x5c57f1[_0x41f467(0x2ae)](_0x36bc80[_0x41f467(0x1e9)]+'\x20arrives\x20at\x20the\x20manor.');}),currentepisode++;if(currentepisode===0x1){if(forcenone===![]){if(forcetrapped)_0x5c57f1[_0x33183d(0x241)](_0x33183d(0x1d5),_0x33183d(0x273));else{if(forcepoisoned)_0x5c57f1[_0x33183d(0x241)](_0x33183d(0x1d5),_0x33183d(0x1ef));else{let _0x495fd2=Math['floor'](Math[_0x33183d(0x226)]()*0x3);if(_0x495fd2===0x0)_0x5c57f1['button']('Proceed',_0x33183d(0x273));else _0x495fd2===0x1?_0x5c57f1[_0x33183d(0x241)](_0x33183d(0x1d5),_0x33183d(0x1ef)):_0x5c57f1['button']('Proceed',_0x33183d(0x25c));}}}else _0x5c57f1[_0x33183d(0x241)]('Proceed',_0x33183d(0x25c));}else _0x5c57f1['button'](_0x33183d(0x1d5),_0x33183d(0x2c2));}}function determineTrapped(){const _0xf851ad=_0x4f6694;let _0x518643;currentcast[_0xf851ad(0x24a)]>=0x8?_0x518643=Math['floor'](Math[_0xf851ad(0x226)]()*0x4)+0x1:_0x518643=Math[_0xf851ad(0x237)](Math[_0xf851ad(0x226)]()*0x2)+0x1;const _0x3c76ad=[],_0x64331f=[...currentcast][_0xf851ad(0x298)](()=>0.5-Math[_0xf851ad(0x226)]());for(let _0x5756bd=0x0;_0x5756bd<_0x518643;_0x5756bd++){_0x3c76ad['push'](_0x64331f[_0x5756bd]);}const _0x517068=new Scene();_0x517068[_0xf851ad(0x21f)](),_0x3c76ad[_0xf851ad(0x288)](_0xa1285b=>{const _0x7bb37e=_0xf851ad;trappedguests[_0x7bb37e(0x262)](_0xa1285b),_0xa1285b['trapped']=!![],_0x517068['image'](_0xa1285b[_0x7bb37e(0x1d6)]),_0x517068['paragraph'](_0xa1285b['name']+_0x7bb37e(0x284));}),_0x517068['button'](_0xf851ad(0x1d5),_0xf851ad(0x282));}function determinePoisoned(){const _0xbbf25a=_0x4f6694,_0x35be79=new Scene();_0x35be79[_0xbbf25a(0x21f)]();let _0x41b61f=currentcast[Math[_0xbbf25a(0x237)](Math[_0xbbf25a(0x226)]()*currentcast[_0xbbf25a(0x24a)])];_0x35be79[_0xbbf25a(0x1d6)](_0x41b61f[_0xbbf25a(0x1d6)]),_0x35be79['paragraph'](_0x41b61f['name']+_0xbbf25a(0x1ff));let _0x3f550a=Math[_0xbbf25a(0x237)](Math[_0xbbf25a(0x226)]()*0x64);_0x3f550a<0x32?(currentcast=currentcast[_0xbbf25a(0x1eb)](_0x4bd8b0=>_0x4bd8b0!==_0x41b61f),deadcast[_0xbbf25a(0x262)](_0x41b61f),_0x35be79[_0xbbf25a(0x2ae)](_0xbbf25a(0x223)+_0x41b61f[_0xbbf25a(0x1e9)]+_0xbbf25a(0x274))):_0x35be79[_0xbbf25a(0x2ae)](_0xbbf25a(0x1e3)+_0x41b61f[_0xbbf25a(0x1e9)]+_0xbbf25a(0x22c)),_0x35be79[_0xbbf25a(0x241)](_0xbbf25a(0x1d5),_0xbbf25a(0x282));}function _0x1ad1(_0x3bcb93,_0x35284f){const _0x31c942=_0x31c9();return _0x1ad1=function(_0x1ad139,_0x53c064){_0x1ad139=_0x1ad139-0x1c8;let _0x5abcb1=_0x31c942[_0x1ad139];return _0x5abcb1;},_0x1ad1(_0x3bcb93,_0x35284f);}function newEpisode(_0x5a148e){const _0xff4d65=_0x4f6694;_0x5a148e===![]&&currentepisode++;const _0x414438=new Scene();_0x414438['clean']();if(currentcast[_0xff4d65(0x24a)]===0x3){startFinale();return;}currentepisode===0x1?(_0x414438[_0xff4d65(0x2ae)](_0xff4d65(0x28c)+remainingartifacts+_0xff4d65(0x20d)),_0x414438[_0xff4d65(0x2ae)](_0xff4d65(0x2b2))):(votedguests=[],votingPool=[],trappedguests=[]);const _0x41465d=new Discussions(currentcast,trappedguests);_0x41465d[_0xff4d65(0x235)](),trappedguests[_0xff4d65(0x24a)]>0x0?_0x414438['button'](_0xff4d65(0x1d5),'findOthers()'):_0x414438[_0xff4d65(0x241)](_0xff4d65(0x1d5),_0xff4d65(0x1d8));}function findOthers(){const _0x43ecc9=_0x4f6694,_0x2e37d8=new Scene();_0x2e37d8[_0x43ecc9(0x21f)](),_0x2e37d8['title'](_0x43ecc9(0x2a1)),_0x2e37d8['paragraph']('The\x20'+currentcast[_0x43ecc9(0x24a)]+'\x20come\x20across\x20the\x20trapped\x20guests.');if(trappedguests['length']>0x0){let _0x537693=document['getElementById']('main-content'),_0x3acca5=document['createElement'](_0x43ecc9(0x21b));_0x537693[_0x43ecc9(0x231)](_0x3acca5),_0x3acca5[_0x43ecc9(0x1ec)]('id',_0x43ecc9(0x215)),trappedguests['forEach'](_0x3c5047=>{const _0x235621=_0x43ecc9;let _0xc49cca=document[_0x235621(0x2b0)](_0x235621(0x232));_0xc49cca[_0x235621(0x216)]=_0x3c5047[_0x235621(0x1d6)],_0xc49cca[_0x235621(0x1ec)](_0x235621(0x2c0),_0x235621(0x2c6)),_0x3acca5[_0x235621(0x231)](_0xc49cca);});let _0x416860=trappedguests[_0x43ecc9(0x206)](_0x5cb5b0=>_0x5cb5b0[_0x43ecc9(0x1e9)])[_0x43ecc9(0x250)](',\x20');_0x2e37d8['paragraph'](_0x416860+'\x20'+(trappedguests['length']>0x1?_0x43ecc9(0x1ce):_0x43ecc9(0x212))+_0x43ecc9(0x296));}_0x2e37d8[_0x43ecc9(0x241)](_0x43ecc9(0x1d5),'findArtifact()');}function findArtifact(){const _0x68069c=_0x4f6694,_0x4191c2=new Scene(),_0x5e55cf=new Artifacts();_0x4191c2[_0x68069c(0x21f)](),_0x4191c2[_0x68069c(0x1c9)](_0x68069c(0x2b6)),currentMonster=_0x5e55cf['monster']();let _0xe7f5c8=document[_0x68069c(0x21a)](_0x68069c(0x1f5)),_0x52767a=document[_0x68069c(0x2b0)]('div');_0x52767a[_0x68069c(0x1ec)]('id','grid'),_0xe7f5c8[_0x68069c(0x231)](_0x52767a),currentcast['forEach'](_0x83eae=>{const _0x4fab5a=_0x68069c;let _0x117e89=document[_0x4fab5a(0x2b0)]('img');_0x117e89[_0x4fab5a(0x216)]=_0x83eae['image'],_0x117e89[_0x4fab5a(0x1ec)](_0x4fab5a(0x2c0),_0x4fab5a(0x2c6)),_0x52767a[_0x4fab5a(0x231)](_0x117e89);}),_0x4191c2[_0x68069c(0x2ae)]('A\x20'+currentMonster+'\x20suddenly\x20chases\x20the\x20guests!'),_0x5e55cf[_0x68069c(0x27e)](_0x4191c2),_0x4191c2[_0x68069c(0x2ae)](_0x68069c(0x230)+_0x5e55cf['artifact']()+'!');let _0x589bf8=Math[_0x68069c(0x237)](Math['random']()*currentcast[_0x68069c(0x24a)]);_0x4191c2[_0x68069c(0x1d6)](currentcast[_0x589bf8][_0x68069c(0x1d6)]),_0x4191c2[_0x68069c(0x2ae)](_0x68069c(0x1e4)+currentcast[_0x589bf8][_0x68069c(0x1e9)]+_0x68069c(0x258)),_0x4191c2['button']('Proceed',_0x68069c(0x2ad));}function votingCeremony(){const _0x598cb7=_0x4f6694,_0x2d38ac=new Scene();_0x2d38ac[_0x598cb7(0x21f)](),_0x2d38ac[_0x598cb7(0x1c9)](_0x598cb7(0x1e2));let _0x264e66=document['getElementById'](_0x598cb7(0x1f5)),_0x4e73e1=document[_0x598cb7(0x2b0)]('div');_0x4e73e1[_0x598cb7(0x1ec)]('id',_0x598cb7(0x215)),_0x264e66[_0x598cb7(0x231)](_0x4e73e1),currentcast['forEach'](_0x5973a7=>{const _0xdf091b=_0x598cb7;let _0x30dffb=document['createElement']('img');_0x30dffb['src']=_0x5973a7[_0xdf091b(0x1d6)],_0x30dffb[_0xdf091b(0x1ec)](_0xdf091b(0x2c0),_0xdf091b(0x2c6)),_0x4e73e1[_0xdf091b(0x231)](_0x30dffb);}),_0x2d38ac[_0x598cb7(0x2ae)]('To\x20cleanse\x20the\x20artifact,\x20the\x20'+currentcast[_0x598cb7(0x24a)]+_0x598cb7(0x1fc)),_0x2d38ac[_0x598cb7(0x2ae)]('One\x20or\x20both\x20of\x20them\x20will\x20die.');let _0x56e32d=document[_0x598cb7(0x2b0)]('hr');_0x264e66['append'](_0x56e32d);let _0x68f465=new VotingCeremony();_0x68f465[_0x598cb7(0x211)]();let _0x42a0a8=document['createElement']('hr');_0x264e66[_0x598cb7(0x231)](_0x42a0a8),_0x2d38ac[_0x598cb7(0x241)](_0x598cb7(0x1d5),_0x598cb7(0x21e));}function shuffleVotes(){const _0x1f420d=_0x4f6694;currentcast[_0x1f420d(0x288)](_0x22f56d=>{votingPool['push'](_0x22f56d['choice']);}),currentcast[_0x1f420d(0x288)](_0x3f6a8f=>{const _0x594f60=_0x1f420d;votingPool[_0x594f60(0x262)](_0x3f6a8f[_0x594f60(0x26a)]);});const _0x156175=new Scene();_0x156175[_0x1f420d(0x21f)](),_0x156175[_0x1f420d(0x1c9)](_0x1f420d(0x1e5)),_0x156175[_0x1f420d(0x2ae)](_0x1f420d(0x285));let _0x4784a5=votingPool[Math[_0x1f420d(0x237)](Math['random']()*votingPool[_0x1f420d(0x24a)])],_0x346aef=votingPool[_0x1f420d(0x1eb)](_0x57f8af=>_0x57f8af!==_0x4784a5);_0x156175[_0x1f420d(0x1d6)](_0x4784a5[_0x1f420d(0x1d6)]),_0x156175[_0x1f420d(0x2ae)](_0x4784a5['name']+_0x1f420d(0x290)),_0x156175['paragraph'](_0x1f420d(0x2c5));let _0x39a77e=_0x346aef[Math[_0x1f420d(0x237)](Math[_0x1f420d(0x226)]()*_0x346aef[_0x1f420d(0x24a)])];_0x156175[_0x1f420d(0x1d6)](_0x39a77e['image']),_0x156175[_0x1f420d(0x2ae)](_0x39a77e[_0x1f420d(0x1e9)]+'...'),votedguests[_0x1f420d(0x262)](_0x4784a5),votedguests[_0x1f420d(0x262)](_0x39a77e),_0x156175[_0x1f420d(0x241)](_0x1f420d(0x1d5),'startChallenge()');}function startChallenge(){const _0xf00fbf=_0x4f6694,_0x48e12f=new Scene(),_0x491176=new Challenge(),_0x384ff1=new Artifacts();_0x48e12f[_0xf00fbf(0x21f)](),_0x48e12f[_0xf00fbf(0x1c9)]('The\x20challenge\x20begins...');function _0x176387(){const _0xdea05e=_0xf00fbf,_0x1e3bac=document[_0xdea05e(0x2b0)]('div');return _0x1e3bac['id']='grid',_0x48e12f[_0xdea05e(0x275)][_0xdea05e(0x278)](_0x1e3bac),_0x1e3bac;}let _0x32f2c9=_0x176387();const _0x3c3445=document[_0xf00fbf(0x20e)]();votedguests[_0xf00fbf(0x288)](_0x24056b=>{const _0x183397=_0xf00fbf,_0x1dbfc4=document[_0x183397(0x2b0)]('img');_0x1dbfc4[_0x183397(0x216)]=_0x24056b['image'],_0x1dbfc4['loading']=_0x183397(0x2c6),_0x3c3445[_0x183397(0x278)](_0x1dbfc4);}),_0x32f2c9[_0xf00fbf(0x278)](_0x3c3445),_0x48e12f[_0xf00fbf(0x2ae)](_0xf00fbf(0x264));let _0x554421=Math['floor'](Math[_0xf00fbf(0x226)]()*0x3);currentcast<0x4&&_0x554421===0x2&&(_0x554421=0x0);remainingartifacts--;const _0x59ce93=_0x491176[_0xf00fbf(0x257)][Math[_0xf00fbf(0x237)](Math[_0xf00fbf(0x226)]()*_0x491176[_0xf00fbf(0x257)]['length'])];if(_0x554421===0x0){const _0x505143=_0x384ff1[_0xf00fbf(0x1f4)][Math['floor'](Math[_0xf00fbf(0x226)]()*_0x384ff1[_0xf00fbf(0x1f4)][_0xf00fbf(0x24a)])];_0x48e12f[_0xf00fbf(0x2ae)](_0xf00fbf(0x297)+_0x505143);const _0x3ee1c0=votedguests[Math[_0xf00fbf(0x237)](Math[_0xf00fbf(0x226)]()*votedguests[_0xf00fbf(0x24a)])],_0x444681=votedguests[_0xf00fbf(0x1eb)](_0x282ef0=>_0x282ef0!==_0x3ee1c0),_0x4ee1be=_0x444681[Math['floor'](Math['random']()*_0x444681[_0xf00fbf(0x24a)])];_0x48e12f[_0xf00fbf(0x1d6)](_0x3ee1c0[_0xf00fbf(0x1d6)]),_0x48e12f[_0xf00fbf(0x2ae)](_0x3ee1c0[_0xf00fbf(0x1e9)]+_0xf00fbf(0x22d)),_0x48e12f[_0xf00fbf(0x1d6)](_0x4ee1be[_0xf00fbf(0x1d6)]),_0x48e12f[_0xf00fbf(0x2ae)](_0xf00fbf(0x1dd)+currentMonster+'\x20then\x20'+_0x59ce93+'\x20'+_0x4ee1be[_0xf00fbf(0x1e9)]+'\x20to\x20death...'),deadcast[_0xf00fbf(0x262)](_0x4ee1be),currentcast=currentcast['filter'](_0x1bf27f=>_0x1bf27f!==_0x4ee1be),_0x48e12f[_0xf00fbf(0x241)]('Proceed',_0xf00fbf(0x25c));}else{if(_0x554421===0x1){_0x48e12f[_0xf00fbf(0x2ae)](_0xf00fbf(0x209));let _0x1338dc,_0x56e7e0=_0x176387();while(!![]){if(votedguests[0x0]['choice']===votedguests[0x1][_0xf00fbf(0x26a)]){_0x1338dc=votedguests[0x0][_0xf00fbf(0x26a)];if(votedguests[_0xf00fbf(0x27f)](_0x1338dc)){votedguests[_0xf00fbf(0x288)](_0x562a40=>{const _0x1b6a40=_0xf00fbf,_0x30a776=currentcast[_0x1b6a40(0x1eb)](_0x45ea75=>_0x45ea75!==_0x562a40);_0x562a40[_0x1b6a40(0x26a)]=_0x30a776[Math[_0x1b6a40(0x237)](Math[_0x1b6a40(0x226)]()*_0x30a776['length'])];});continue;}const _0x58ed17=document[_0xf00fbf(0x2b0)](_0xf00fbf(0x232));_0x58ed17[_0xf00fbf(0x216)]=votedguests[0x0][_0xf00fbf(0x1d6)],_0x58ed17['loading']=_0xf00fbf(0x2c6);const _0x19782e=document['createElement'](_0xf00fbf(0x232));_0x19782e[_0xf00fbf(0x216)]=votedguests[0x1]['image'],_0x19782e[_0xf00fbf(0x2c0)]=_0xf00fbf(0x2c6);const _0x4b59cb=document[_0xf00fbf(0x2b0)](_0xf00fbf(0x232));_0x4b59cb[_0xf00fbf(0x216)]=_0x1338dc[_0xf00fbf(0x1d6)],_0x4b59cb[_0xf00fbf(0x2c0)]=_0xf00fbf(0x2c6),_0x56e7e0[_0xf00fbf(0x278)](_0x58ed17),_0x56e7e0[_0xf00fbf(0x278)](_0x19782e),_0x56e7e0[_0xf00fbf(0x278)](_0x4b59cb),_0x48e12f[_0xf00fbf(0x2ae)](_0xf00fbf(0x1f2)+_0x1338dc[_0xf00fbf(0x1e9)]+_0xf00fbf(0x290));break;}else{const _0x3712cc=votedguests[0x0];_0x1338dc=_0x3712cc[_0xf00fbf(0x26a)];if(votedguests[_0xf00fbf(0x27f)](_0x1338dc)){const _0x542d16=currentcast['filter'](_0x49950f=>_0x49950f!==_0x3712cc);_0x3712cc[_0xf00fbf(0x26a)]=_0x542d16[Math[_0xf00fbf(0x237)](Math[_0xf00fbf(0x226)]()*_0x542d16['length'])];continue;}const _0x27524a=document[_0xf00fbf(0x2b0)]('img');_0x27524a['src']=_0x3712cc[_0xf00fbf(0x1d6)],_0x27524a[_0xf00fbf(0x2c0)]=_0xf00fbf(0x2c6);const _0x246b35=document['createElement'](_0xf00fbf(0x232));_0x246b35['src']=_0x1338dc[_0xf00fbf(0x1d6)],_0x246b35[_0xf00fbf(0x2c0)]=_0xf00fbf(0x2c6),_0x56e7e0[_0xf00fbf(0x278)](_0x27524a),_0x56e7e0[_0xf00fbf(0x278)](_0x246b35),_0x48e12f[_0xf00fbf(0x2ae)](_0x3712cc[_0xf00fbf(0x1e9)]+_0xf00fbf(0x214)+_0x1338dc[_0xf00fbf(0x1e9)]);break;}}_0x48e12f[_0xf00fbf(0x1d6)](_0x1338dc['image']),_0x48e12f[_0xf00fbf(0x2ae)](_0xf00fbf(0x1dd)+currentMonster+_0xf00fbf(0x267)+_0x59ce93+'\x20'+_0x1338dc['name']+_0xf00fbf(0x25a)),deadcast[_0xf00fbf(0x262)](_0x1338dc),currentcast=currentcast[_0xf00fbf(0x1eb)](_0x5c244a=>_0x5c244a!==_0x1338dc),_0x48e12f[_0xf00fbf(0x241)](_0xf00fbf(0x1d5),'newEpisode(false)');}else{_0x48e12f[_0xf00fbf(0x2ae)](_0xf00fbf(0x25d));let _0x51064f=_0x176387();const _0x16aecf=[];votedguests[_0xf00fbf(0x288)](_0x568e53=>{const _0x55a927=_0xf00fbf,_0x1dfb99=currentcast[_0x55a927(0x1eb)](_0x4049dc=>!votedguests[_0x55a927(0x27f)](_0x4049dc)&&!_0x16aecf[_0x55a927(0x27f)](_0x4049dc));_0x1dfb99[_0x55a927(0x24a)]===0x0?(console[_0x55a927(0x1dc)](_0x55a927(0x2bb)+_0x568e53[_0x55a927(0x1e9)]),_0x568e53[_0x55a927(0x2a7)]=null):(_0x568e53[_0x55a927(0x2a7)]=_0x1dfb99[Math['floor'](Math['random']()*_0x1dfb99[_0x55a927(0x24a)])],_0x16aecf[_0x55a927(0x262)](_0x568e53[_0x55a927(0x2a7)]));}),votedguests[_0xf00fbf(0x288)](_0x128258=>{const _0xdcfa7a=_0xf00fbf,_0x49614e=document[_0xdcfa7a(0x2b0)](_0xdcfa7a(0x232));_0x49614e[_0xdcfa7a(0x216)]=_0x128258[_0xdcfa7a(0x1d6)],_0x49614e[_0xdcfa7a(0x2c0)]='lazy';const _0x46eace=document[_0xdcfa7a(0x2b0)](_0xdcfa7a(0x232));_0x46eace['src']=_0x128258['partner']?.['image']||_0xdcfa7a(0x239),_0x46eace[_0xdcfa7a(0x2c0)]='lazy',_0x51064f[_0xdcfa7a(0x278)](_0x49614e),_0x51064f[_0xdcfa7a(0x278)](_0x46eace),_0x48e12f['paragraph'](_0x128258[_0xdcfa7a(0x1e9)]+_0xdcfa7a(0x287)+(_0x128258[_0xdcfa7a(0x2a7)]?.['name']||_0xdcfa7a(0x25b))+'\x20to\x20compete\x20for\x20them.');});const _0x153c20=Math[_0xf00fbf(0x237)](Math['random']()*0x2),_0x3a2c47=votedguests[_0x153c20],_0x406fa0=votedguests[0x1-_0x153c20],_0x17a1c3=_0x406fa0;_0x48e12f[_0xf00fbf(0x1d6)](_0x3a2c47[_0xf00fbf(0x2a7)]['image']),_0x48e12f[_0xf00fbf(0x2ae)](_0x3a2c47[_0xf00fbf(0x2a7)][_0xf00fbf(0x1e9)]+_0xf00fbf(0x2b3)+_0x3a2c47[_0xf00fbf(0x1e9)]+'!'),_0x48e12f[_0xf00fbf(0x1d6)](_0x406fa0[_0xf00fbf(0x2a7)][_0xf00fbf(0x1d6)]),_0x48e12f[_0xf00fbf(0x2ae)]('But\x20'+_0x406fa0[_0xf00fbf(0x2a7)][_0xf00fbf(0x1e9)]+_0xf00fbf(0x28b)+_0x17a1c3[_0xf00fbf(0x1e9)]+_0xf00fbf(0x290)),_0x48e12f[_0xf00fbf(0x2ae)](_0xf00fbf(0x1dd)+currentMonster+'\x20then\x20'+_0x59ce93+'\x20'+_0x17a1c3['name']+_0xf00fbf(0x25a)),deadcast[_0xf00fbf(0x262)](_0x17a1c3),currentcast=currentcast[_0xf00fbf(0x1eb)](_0xff29e7=>_0xff29e7!==_0x17a1c3),_0x48e12f[_0xf00fbf(0x241)](_0xf00fbf(0x1d5),_0xf00fbf(0x25c));}}}function _0x31c9(){const _0x33e43e=['forEach','they\x20use\x20their\x20past\x20knowledge\x20to\x20get\x20past\x20a\x20puzzle.','votingreasons','\x20failed\x20to\x20protect\x20','The\x20guests\x20discover\x20that\x20they\x20have\x20to\x20find\x20','vampire','Teala\x20Dunn','\x20tries\x20looking\x20for\x20secrets.','...','\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>',',\x20have\x20been\x20been\x20caught\x20by\x20','Nikita\x20Dragun','the\x20jack\x20in\x20the\x20box','none','\x20have\x20been\x20found\x20and\x20freed.','For\x20the\x20challenge,\x20','sort','getRandom','they\x20have\x20to\x20find\x20and\x20open\x20a\x20safe.','Tana\x20Mongeau','trim','Colleen\x20Ballinger','ShaneDawson','they\x20run\x20through\x20a\x20maze.','Liza\x20Koshy','The\x20guests\x20find\x20the\x20others...','the\x20serpent\x27s\x20eyes','they\x20take\x20a\x20short\x20break.','Justine\x20Ezarik','.webp','You\x20need\x20at\x20least\x204\x20contestants\x20to\x20start\x20the\x20simulation!','partner','they\x20look\x20around\x20in\x20the\x20dark\x20for\x20a\x20clue.','the\x20stature\x20of\x20era','currentcast','\x20pushes\x20','3404440uixggn','votingCeremony()','paragraph','GabbieHanna','createElement','toLowerCase','For\x20each\x20artifact\x20to\x20be\x20cleansed,\x20at\x20least\x20one\x20person\x20must\x20die.','\x20wins\x20the\x20challenge\x20for\x20','getRandomContestant','OliWhite','The\x20guests\x20find\x20the\x20artifact...','GloZell\x20Green','because\x20they\x20are\x20too\x20weak.','they\x20have\x20to\x20find\x20a\x20combination\x20to\x20a\x20safe.','they\x20split\x20into\x20two\x20groups\x20to\x20find\x20the\x20artifact.','No\x20eligible\x20partners\x20left\x20for\x20','AndreaBrooks','Matt\x20Haag','Sierra\x20Furtado','LaurenRiihimaki','loading','JoeyGraceffa','newEpisode()','And\x20finally,','999760MHRNSe','The\x20second\x20person\x20going\x20into\x20the\x20challenge\x20is...','lazy','availableContestants','value','because\x20they\x20argued\x20with\x20their\x20friend.','title','they\x20have\x20to\x20solve\x20a\x20puzzle.','title-text','contains','addEventListener','have','NikitaDragun','onload','because\x20they\x20had\x20a\x20grudge\x20against\x20them.','location','1028eifvGi','they\x20have\x20to\x20decipher\x20a\x20code.','Proceed','image','Safiya\x20Nygaard','findArtifact()','Please\x20enter\x20a\x20name.','Tyler\x20Oakley','\x20tries\x20to\x20solve\x20clues.','warn','The\x20','add','\x20sulks.','they\x20have\x20to\x20solve\x20a\x20slide\x20puzzle.','cast-item','The\x20voting\x20ceremony\x20begins...','The\x20guests\x20succeed\x20to\x20get\x20the\x20cure\x20in\x20time,\x20and\x20','However\x20','The\x20votes\x20are\x20in...','Andrea\x20Russett','JC\x20Caylen','block','name','target','filter','setAttribute','\x20falls\x20asleep.','\x20screams\x20at\x20','determinePoisoned()','First,','they\x20escape\x20from\x20a\x20room\x20filling\x20with\x20water.','They\x20agree\x20on\x20betraying\x20','GloZellGreen','steps','main-content','they\x20use\x20a\x20map\x20to\x20get\x20to\x20the\x20next\x20clue.','4539EmUmxG','TimothyDeLaGhetto','trappedguests','Andrea\x20Brooks','readAsDataURL','\x20remaining\x20have\x20to\x20vote\x202\x20people.','42EUrIsV','they\x20use\x20clues\x20to\x20get\x20a\x20password.','\x20starts\x20spitting\x20out\x20blood,\x20they\x20have\x20been\x20poisoned\x20by\x20the\x20mansion.','they\x20have\x20to\x20find\x20out\x20which\x20vial\x20to\x20drink.','querySelectorAll','searchActions','for\x20not\x20pulling\x20their\x20weight.','the\x20psychedelic\x20swirl','35240ShWmVN','map','files','after\x20a\x20minor\x20disagreement.','In\x20a\x20twist,\x20they\x20get\x20to\x20betray\x20one\x20of\x20their\x20fellow\x20houseguests.','\x20and\x20','<div\x20data-name=\x22','bludgeons','\x20artifacts.','createDocumentFragment','click','TealaDunn','voting','has','null','\x20chooses\x20to\x20betray\x20','grid','src','576709lZDksU','\x20rests.','5196690yNahjs','getElementById','div','find','stabs','shuffleVotes()','clean','innerHTML','because\x20they\x20are\x20too\x20hostile.','they\x20look\x20around\x20for\x20the\x20artifact.','The\x20guests\x20fail\x20to\x20get\x20the\x20cure\x20in\x20time,\x20and\x20','JesseWellens','the\x20collar\x20of\x20control','random','they\x20have\x20to\x20find\x20and\x20open\x20a\x20box.','The\x20guests\x20vote...','slashes','Alex\x20Wassabi','they\x20have\x20to\x20dig\x20up\x20a\x20box.','\x20is\x20cured!','\x20wins\x20the\x20challenge.','displayName','reason','They\x20find\x20','append','img','they\x20split\x20into\x20two\x20groups\x20to\x20escape\x20a\x20monster.','barely\x20wins\x20the\x20challenge','run','style','floor','Matthew\x20Patrick','default.png','dualActions','LizaKoshy','they\x20have\x20to\x20find\x20the\x20code\x20to\x20a\x20safe.','pathname','477tawheL','monsters','image/contestants/','button','horde\x20of\x20zombies','index','TanaMongeau','artifact','Shane\x20Dawson','idleActions','The\x20guests\x20arrive\x20at\x20the\x20manor','custom-image','length','the\x20life\x20stone','\x20pretends\x20to\x20do\x20something.','classList','The\x20remaining\x20guests\x20now\x20dash\x20to\x20find\x20the\x20last\x20artifact.','Oli\x20White','join','422681vzDCbH','horde\x20of\x20clowns','Then,','Jesse\x20Wellens','custom-name','Rosanna\x20Pansino','deathText','\x20did\x20the\x20most\x20work!','werewolf','\x20to\x20death...','no\x20one','newEpisode(false)','In\x20a\x20twist,\x20they\x20get\x20to\x20pick\x20a\x20partner\x20to\x20compete\x20for\x20them.','they\x20escape\x20from\x20a\x20slowly\x20burning\x20room.','\x22\x20alt=\x22','Gabbie\x20Hanna','SafiyaNygaard','push','JustineEzarik','The\x20two\x20are\x20led\x20to\x20an\x20area.','GuavaJuice','they\x20have\x20to\x20solve\x20a\x20color\x20based\x20puzzle.','\x20then\x20','BretmanRock','Timothy\x20DeLaGhetto','choice','mauls','the\x20night\x20killer\x20doll','The\x20final\x20mile...','LelePons','MannyMUA','monster','getTwoDistinctRandomContestants','alt','determineTrapped()','\x20dies....','_main','querySelector','\x20voted\x20for\x20','appendChild','\x20hang\x20out.','Lele\x20Pons','artifacts','Guava\x20Juice','display','generateNarrative','includes','EvaGutowski','RosannaPansino','newEpisode(true)','JCCaylen','\x20has\x20been\x20kidnapped\x20and\x20trapped\x20in\x20the\x20mansion.','The\x20first\x20person\x20going\x20into\x20the\x20challenge\x20is...','search-dropdown','\x20chooses\x20'];_0x31c9=function(){return _0x33e43e;};return _0x31c9();}function startFinale(){const _0x1c36bd=_0x4f6694,_0x9efb4e=new Scene();_0x9efb4e[_0x1c36bd(0x21f)](),_0x9efb4e[_0x1c36bd(0x1c9)](_0x1c36bd(0x26d));const _0x2bebab=document[_0x1c36bd(0x2b0)]('div');_0x2bebab[_0x1c36bd(0x1ec)]('id',_0x1c36bd(0x215)),_0x9efb4e['_main'][_0x1c36bd(0x278)](_0x2bebab),currentcast[_0x1c36bd(0x288)](_0x53bf8b=>{const _0x566a4c=_0x1c36bd,_0x2b1904=document['createElement']('img');_0x2b1904[_0x566a4c(0x216)]=_0x53bf8b[_0x566a4c(0x1d6)],_0x2b1904[_0x566a4c(0x2c0)]=_0x566a4c(0x2c6),_0x2bebab[_0x566a4c(0x278)](_0x2b1904);}),_0x9efb4e[_0x1c36bd(0x2ae)](_0x1c36bd(0x24e)),_0x9efb4e['paragraph']('A\x20'+currentMonster+'\x20tries\x20to\x20stop\x20them!');let _0xa77a0f=Math['floor'](Math[_0x1c36bd(0x226)]()*0x64);if(_0xa77a0f<0xa){const _0x77dd51=document[_0x1c36bd(0x2b0)](_0x1c36bd(0x21b));_0x77dd51['setAttribute']('id','grid'),_0x9efb4e[_0x1c36bd(0x275)]['appendChild'](_0x77dd51),currentcast[_0x1c36bd(0x288)](_0x113b10=>{const _0x3ca1b0=_0x1c36bd,_0x547605=document['createElement'](_0x3ca1b0(0x232));_0x547605[_0x3ca1b0(0x216)]=_0x113b10['image'],_0x547605[_0x3ca1b0(0x2c0)]=_0x3ca1b0(0x2c6),_0x77dd51[_0x3ca1b0(0x278)](_0x547605);});let _0x5b156c=currentcast[_0x1c36bd(0x206)](_0x5b19bf=>_0x5b19bf[_0x1c36bd(0x1e9)])[_0x1c36bd(0x250)](',\x20');_0x9efb4e[_0x1c36bd(0x2ae)](_0x5b156c+_0x1c36bd(0x292)+currentMonster+'!'),_0x9efb4e[_0x1c36bd(0x2ae)]('The\x20guests\x20failed\x20to\x20escape\x20the\x20night...');}else{let _0x4ea04f=new Artifacts();const _0x3dacca=document[_0x1c36bd(0x2b0)](_0x1c36bd(0x21b));_0x3dacca[_0x1c36bd(0x1ec)]('id','grid'),_0x9efb4e[_0x1c36bd(0x275)][_0x1c36bd(0x278)](_0x3dacca),currentcast[_0x1c36bd(0x288)](_0x529843=>{const _0x40ea4e=_0x1c36bd,_0x1505a0=document[_0x40ea4e(0x2b0)](_0x40ea4e(0x232));_0x1505a0['src']=_0x529843[_0x40ea4e(0x1d6)],_0x1505a0[_0x40ea4e(0x2c0)]=_0x40ea4e(0x2c6),_0x3dacca[_0x40ea4e(0x278)](_0x1505a0);}),_0x9efb4e['paragraph']('The\x20guests\x20have\x20found\x20the\x20'+_0x4ea04f[_0x1c36bd(0x245)]()+'!'),_0x9efb4e[_0x1c36bd(0x2ae)]('They\x20have\x20escaped\x20the\x20night...');}}
+if (window.location.pathname.includes("index")) {
+    function addCustomContestant() {
+        const nameInput = document.getElementById("custom-name");
+        const imageInput = document.getElementById("custom-image");
+        const name = nameInput.value.trim();
+
+        if (!name) {
+            alert("Please enter a name.");
+            return;
+        }
+
+        let imageUrl = "image/SAE_Logo.webp";
+
+        if (imageInput.files.length > 0) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                imageUrl = e.target.result;
+
+                const newContestant = new Contestant(name);
+                newContestant.image = imageUrl;
+
+                currentcast.push(newContestant);
+                updateCastScreen();
+
+                nameInput.value = "";
+                imageInput.value = "";
+            };
+            reader.readAsDataURL(imageInput.files[0]);
+        } else {
+            const newContestant = new Contestant(name);
+            newContestant.image = imageUrl;
+            currentcast.push(newContestant);
+            updateCastScreen();
+
+            nameInput.value = "";
+        }
+    }
+
+    const searchInput = document.getElementById("contestant-search");
+    const dropdown = document.getElementById("search-dropdown");
+
+    searchInput.addEventListener("index", () => {
+    const query = searchInput.value.trim().toLowerCase();
+
+    if (!query) {
+        dropdown.style.display = "none";
+        dropdown.innerHTML = "";
+        return;
+    }
+
+    const matches = allContestants.filter(c => c.displayName.toLowerCase().includes(query));
+
+    if (matches.length === 0) {
+        dropdown.style.display = "none";
+        dropdown.innerHTML = "";
+        return;
+    }
+
+    dropdown.innerHTML = matches.map(c => `<div data-name="${c.displayName}">${c.displayName}</div>`).join("");
+    dropdown.style.display = "block";
+
+    dropdown.querySelectorAll("div").forEach(item => {
+        item.addEventListener("click", () => {
+            const selectedName = item.getAttribute("data-name");
+            searchInput.value = selectedName;
+
+            const selectedContestant = allContestants.find(c => c.displayName === selectedName);
+            if (selectedContestant && !currentcast.includes(selectedContestant)) {
+                currentcast.push(selectedContestant);
+                updateCastScreen();
+            }
+            dropdown.style.display = "none";
+            dropdown.innerHTML = "";
+            });
+        });
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!searchInput.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.style.display = "none";
+            dropdown.innerHTML = "";
+        }
+    });
+}
+
+// ALL CLASSES //
+class Contestant {
+    constructor(name, image = "null") {
+        this.name = name;
+        const imageName = (!image || image === "null") ? "null" : image;
+        this.image = `image/contestants/${imageName}.webp`;
+
+        this.choice = null;
+        this.partner = null;
+        this.deathepisdode = 0;
+    }
+    get displayName() {
+        return this.name;
+    }
+}
+
+class Artifacts {
+    constructor() {
+        this.monsters = [
+            "vampire",
+            "horde of zombies",
+            "monster",
+            "horde of clowns",
+            "clown",
+            "demon",
+            "werewolf"
+        ];
+
+        this.artifacts = [
+            "the cursed artifact",
+            "the life stone",
+            "the jack in the box",
+            "the serpent's eyes",
+            "the stature of era",
+            "the demonic configuration",
+            "the night killer doll",
+            "the psychedelic swirl",
+            "the wickerman doll",
+            "the collar of control"
+        ];
+
+        this.steps = [
+            "they take a short break.",
+            "they split into two groups to find the artifact.",
+            "they split into two groups to escape a monster.",
+            "they split into two groups to find a key.",
+            "they split into two groups to find a code.",
+            "they use a map to get to the next clue.",
+            "they look around for the artifact.",
+            "they have to solve a slide puzzle.",
+            "they escape from a slowly burning room.",
+            "they escape from a room filling with water.",
+            "they look around in the dark for a clue.",
+            "they use their past knowledge to get past a puzzle.",
+            "they run through a maze.",
+            "they have to figure out which way to go.",
+            "they have to find out which box to open.",
+            "they have to find out which vial to drink.",
+            "they have to get past a monster.",
+            "they have to sneak past a monster.",
+            "they have to find and kill a monster.",
+            "they use clues to get a password.",
+            "they have to decipher a code.",
+            "they have to solve a color based puzzle.",
+            "they have to find and open a safe.",
+            "they have to find and open a box.",
+            "they attempt to get out of a locked room.",
+            "they have to create an antidote.",
+            "they have to solve a puzzle.",
+            "they have to dig up a box.",
+            "they have to find a combination to a safe.",
+            "they have to find the code to a safe.",
+            "they have to figure out a password."
+        ];
+    }
+
+    monster() {
+        const index = Math.floor(Math.random() * this.monsters.length);
+        return this.monsters[index];
+    }
+
+    artifact() {
+        const index = Math.floor(Math.random() * this.artifacts.length);
+        return this.artifacts[index];
+    }
+
+    generateNarrative(scene) {
+        const numSteps = 3 + Math.floor(Math.random() * 3); // 3 to 5 steps
+        const usedIndexes = new Set();
+        const selectedSteps = [];
+
+        while (selectedSteps.length < numSteps) {
+            const index = Math.floor(Math.random() * this.steps.length);
+            if (!usedIndexes.has(index)) {
+                usedIndexes.add(index);
+                selectedSteps.push(this.steps[index]);
+            }
+        }
+
+        const intros = ["First,", "Then,"];
+        for (let i = 0; i < selectedSteps.length; i++) {
+            let prefix;
+            if (i === 0) prefix = "First,";
+            else if (i === selectedSteps.length - 1) prefix = "And finally,";
+            else prefix = "Then,";
+            scene.paragraph(`${prefix} ${selectedSteps[i]}`);
+        }
+    }
+}
+
+class Discussions {
+    constructor(currentcast, trappedguests) {
+        this.currentcast = currentcast;
+        this.trappedguests = trappedguests;
+        this.availableContestants = this.currentcast.filter(c => !trappedguests.includes(c));
+
+        this.searchActions = [
+            a => `${a.name} investigates alone.`,
+            a => `${a.name} rests.`,
+            a => `${a.name} tries looking for secrets.`,
+            a => `${a.name} sulks.`,
+            a => `${a.name} tries to solve clues.`,
+        ];
+
+        this.idleActions = [
+            a => `${a.name} does absolutely nothing.`,
+            a => `${a.name} falls asleep.`,
+            a => `${a.name} hums to themselves.`,
+            a => `${a.name} pretends to do something.`,
+            a => `${a.name} paces, but never actually helps.`,
+        ];
+
+        this.dualActions = [
+            (a, b) => `${a.name} and ${b.name} get into a heated argument.`,
+            (a, b) => `${a.name} gets into an alliance with ${b.name}.`,
+            (a, b) => `${a.name} and ${b.name} hang out.`,
+            (a, b) => `${a.name} pushes ${b.name} into a wall during an argument.`,
+            (a, b) => `${a.name} screams at ${b.name}.`,
+        ];
+    }
+
+    run() {
+        const scene = new Scene();
+        const totalEvents = 4 + Math.floor(Math.random() * 4);
+
+        for (let i = 0; i < totalEvents; i++) {
+            const roll = Math.random();
+
+            if (roll < 0.5) {
+                const person = this.getRandomContestant();
+                const line = this.getRandom(this.searchActions)(person);
+                scene.image(person.image);
+                scene.paragraph(line);
+
+            } else if (roll < 0.75) {
+                const person = this.getRandomContestant();
+                const line = this.getRandom(this.idleActions)(person);
+                scene.image(person.image);
+                scene.paragraph(line);
+
+            } else if (this.availableContestants.length >= 2) {
+                const [a, b] = this.getTwoDistinctRandomContestants();
+                const line = this.getRandom(this.dualActions)(a, b);
+
+                const main = document.getElementById("main-content");
+                const div = document.createElement("div");
+                div.setAttribute("id", "grid");
+                main.append(div);
+
+                [a, b].forEach(contestant => {
+                    const img = document.createElement("img");
+                    img.src = contestant.image;
+                    img.setAttribute("loading", "lazy");
+                    img.alt = contestant.name;
+                    div.append(img);
+                });
+
+                scene.paragraph(line);
+            }
+        }
+    }
+
+    getRandom(list) {
+        return list[Math.floor(Math.random() * list.length)];
+    }
+
+    getRandomContestant() {
+        return this.availableContestants[Math.floor(Math.random() * this.availableContestants.length)];
+    }
+
+    getTwoDistinctRandomContestants() {
+        let first = this.getRandomContestant();
+        let second;
+        do {
+            second = this.getRandomContestant();
+        } while (second === first);
+        return [first, second];
+    }
+}
+
+class VotingCeremony {
+    constructor() {
+        this.currentcast = currentcast;
+
+        this.votingreasons = [
+            "for not pulling their weight.",
+            "because they don't really like them.",
+            "after a minor disagreement.",
+            "after a major disagreement.",
+            "because they are too weak.",
+            "because they chose randomly.",
+            "because someone else told them to.",
+            "because they had a grudge against them.",
+            "because they are too hostile.",
+            "because they argued with their friend."
+        ];
+    }
+
+    reason() {
+        const index = Math.floor(Math.random() * this.votingreasons.length);
+        return this.votingreasons[index];
+    }
+
+    voting() {
+        const scene = new Scene();
+        scene.title("The guests vote...");
+
+        this.currentcast.forEach(c => {
+            const possibleVotes = this.currentcast.filter(member => member !== c);
+
+            const votedIndex = Math.floor(Math.random() * possibleVotes.length);
+            const votedmember = possibleVotes[votedIndex];
+
+            c.choice = votedmember;
+
+            const main = scene._main;
+
+            const div = document.createElement("div");
+            div.id = "grid";
+            main.appendChild(div);
+
+            const img1 = document.createElement("img");
+            img1.src = c.image;
+            img1.loading = "lazy";
+            div.appendChild(img1);
+
+            const img2 = document.createElement("img");
+            img2.src = votedmember.image;
+            img2.loading = "lazy";
+            div.appendChild(img2);
+
+            scene.paragraph(`${c.name} voted for ${votedmember.name} ${this.reason()}`);
+        });
+    }
+}
+
+class Challenge {
+    constructor() {
+        this.winnerText = [
+            "easily wins the challenge",
+            "barely wins the challenge"
+        ];
+        this.deathText = [
+            "bludgeons",
+            "mauls",
+            "slashes",
+            "strangles",
+            "beats",
+            "hangs",
+            "stabs"
+        ];
+    }
+}
+
+class Scene {
+    constructor(_main) {
+        this._main = document.getElementById("main-content");
+    }
+
+    clean() {
+        this._main.innerHTML = "";
+    }
+
+    title(text) {
+        let title = document.getElementById("title-text");
+        title.innerHTML = text;
+    }
+
+    paragraph(text) {
+        let paragraph = document.createElement("p");
+        paragraph.innerHTML = text;
+        this._main.appendChild(paragraph);
+    }
+
+    image(source) {
+        let image = document.createElement("img");
+        image.src = source;
+        image.setAttribute("loading", "lazy");
+        this._main.appendChild(image);
+    }
+
+    button(text, event) {
+        let button = document.createElement("button");
+        button.innerHTML = text;
+        button.setAttribute("onclick", event);
+        this._main.appendChild(button);
+    }
+}
+
+// ALL CONTESTANTS //
+// - SEASON 1 - //
+const joeygraceffa = new Contestant("Joey Graceffa", "JoeyGraceffa");
+const evagutowski = new Contestant("Eva Gutowski", "EvaGutowski");
+const oliwhite = new Contestant("Oli White", "OliWhite");
+const lelepons = new Contestant("Lele Pons", "LelePons");
+const timothydelaghetto = new Contestant("Timothy DeLaGhetto", "TimothyDeLaGhetto");
+const matthaag = new Contestant("Matt Haag", "MattHaag");
+const sierrafurtado = new Contestant("Sierra Furtado", "SierraFurtado");
+const glozellgreen = new Contestant("GloZell Green", "GloZellGreen");
+const justineezarik = new Contestant("Justine Ezarik", "JustineEzarik");
+const andreabrooks = new Contestant("Andrea Brooks", "AndreaBrooks");
+const shanedawson = new Contestant("Shane Dawson", "ShaneDawson");
+
+const season1cast = [joeygraceffa, evagutowski, oliwhite, lelepons, timothydelaghetto, matthaag, sierrafurtado, glozellgreen, justineezarik, andreabrooks, shanedawson];
+
+// - SEASON 2 - //
+const andrearussett = new Contestant("Andrea Russett", "AndreaRussett");
+const tyleroakley = new Contestant("Tyler Oakley", "TylerOakley");
+const alexwassabi = new Contestant("Alex Wassabi", "AlexWassabi");
+const gabbiehanna = new Contestant("Gabbie Hanna", "GabbieHanna");
+const tanamongeau = new Contestant("Tana Mongeau", "TanaMongeau");
+const lizakoshy = new Contestant("Liza Koshy", "LizaKoshy");
+const destormpower = new Contestant("DeStorm Power", "DeStormPower");
+const jessewellens = new Contestant("Jesse Wellens", "JesseWellens");
+const laurenriihimaki = new Contestant("Lauren Riihimaki", "LaurenRiihimaki");
+
+const season2cast = [joeygraceffa, andrearussett, tyleroakley, alexwassabi, gabbiehanna, tanamongeau, lizakoshy, destormpower, jessewellens, laurenriihimaki];
+
+// - SEASON 3 - //
+const matthewpatrick = new Contestant("Matthew Patrick", "MatthewPatrick");
+const nikitadragun = new Contestant("Nikita Dragun", "NikitaDragun");
+const mannymua = new Contestant("Manny MUA", "MannyMUA");
+const rosannapansino = new Contestant("Rosanna Pansino", "RosannaPansino");
+const safiyanygaard = new Contestant("Safiya Nygaard", "SafiyaNygaard");
+const colleenballinger = new Contestant("Colleen Ballinger", "ColleenBallinger");
+const tealadunn = new Contestant("Teala Dunn", "TealaDunn");
+const guavajuice = new Contestant("Guava Juice", "GuavaJuice");
+const jccaylen = new Contestant("JC Caylen", "JCCaylen");
+
+const season3cast = [joeygraceffa, matthewpatrick, nikitadragun, mannymua, rosannapansino, safiyanygaard, colleenballinger, tealadunn, guavajuice, jccaylen];
+
+// - SEASON 4 - //
+const bretmanrock = new Contestant("Bretman Rock", "BretmanRock");
+
+const season4cast = [joeygraceffa, colleenballinger, bretmanrock, rosannapansino, alexwassabi, gabbiehanna, tanamongeau, destormpower, timothydelaghetto, justineezarik];
+
+// - THE MOVIE - //
+const moviecast = [joeygraceffa, rosannapansino, tanamongeau, matthewpatrick, nikitadragun, bretmanrock, lelepons];
+
+const allContestants = [joeygraceffa, evagutowski, oliwhite, lelepons, timothydelaghetto, matthaag, sierrafurtado, glozellgreen, justineezarik, andreabrooks, shanedawson, andrearussett, tyleroakley, alexwassabi, gabbiehanna, tanamongeau, lizakoshy, destormpower, jessewellens, laurenriihimaki, matthewpatrick, nikitadragun, mannymua, rosannapansino, safiyanygaard, colleenballinger, tealadunn, guavajuice, jccaylen, bretmanrock];
+let currentcast = [];
+let deadcast = [];
+let trappedguests = [];
+let votingPool = [];
+let votedguests = [];
+
+let currentMonster = null;
+
+let currentepisode = 0;
+let remainingartifacts = 0;
+
+let seasonover = false;
+let forcenone = false;
+let forcetrapped = false;
+let forcepoisoned = false;
+
+// ALL FUNCTIONS //
+function randomContestant() {
+    const eligible = allContestants.filter(c =>
+        !currentcast.includes(c)
+    );
+
+    if (eligible.length === 0) return null;
+
+    const randomIndex = Math.floor(Math.random() * eligible.length);
+    const chosen = eligible[randomIndex];
+
+    currentcast.push(chosen);
+    updateCastScreen();
+    return chosen;
+}
+
+function predefinedCast(cast) {
+    cast.forEach(c => {
+        currentcast.push(c);
+    })
+
+    if (cast === season1cast) {
+        forcepoisoned = true;
+        forcetrapped = false;
+    }
+    else if (cast === season2cast) {
+        forcepoisoned = false;
+        forcetrapped = true;
+    }
+    else if (cast === season3cast) {
+        forcenone = true;
+        forcepoisoned = false;
+        forcetrapped = false;
+    }
+    else if (cast === season4cast) {
+        forcepoisoned = false;
+        forcetrapped = true;
+    }
+}
+
+function updateCastScreen() {
+    const castContainer = document.getElementById("current-cast");
+
+    castContainer.innerHTML = "";
+
+    if (currentcast.length === 0) {
+        castContainer.innerHTML = `<p>No contestants have been added...</p>`;
+        return;
+    }
+    currentcast.forEach(c => {
+        const castItem = document.createElement("div");
+        castItem.classList.add("cast-item");
+        castItem.innerHTML = `
+            <img loading="lazy" src="${c.image}" alt="${c.displayName}">
+            <p>${c.displayName}</p>
+            <button class="remove-btn"><i class="fas fa-times"></i></button>
+        `;
+        const removeButton = castItem.querySelector(".remove-btn");
+        removeButton.addEventListener("click", () => {
+            removeContestant(c);
+        });
+
+        castContainer.appendChild(castItem);
+    });
+}
+
+function removeContestant(contestant) {
+    currentcast = currentcast.filter(c => c !== contestant);
+    updateCastScreen();
+}
+
+function startSimulation(predefinedcast = null) {
+    if (predefinedcast !== null) {
+        predefinedCast(predefinedcast);
+    }
+    if (currentcast.length <= 3) {
+        alert("You need at least 4 contestants to start the simulation!");
+    } else {
+        remainingartifacts = currentcast.length - 2;
+        const scene = new Scene();
+        scene.title("The guests arrive at the manor");
+        scene.clean();
+        currentcast.forEach(c => {
+            scene.image(c.image);
+            scene.paragraph(c.name + " arrives at the manor.");
+        });
+        currentepisode++;
+        if (currentepisode === 1) {
+            if (forcenone === false) {
+                if (forcetrapped) {
+                    scene.button("Proceed", "determineTrapped()");
+                } else if (forcepoisoned) {
+                    scene.button("Proceed", "determinePoisoned()");
+                } else {
+                    let eventType = Math.floor(Math.random() * 3);
+                    if (eventType === 0) {
+                        scene.button("Proceed", "determineTrapped()");
+                    } else if (eventType === 1) {
+                        scene.button("Proceed", "determinePoisoned()");
+                    } else {
+                        scene.button("Proceed", "newEpisode(false)");
+                    }
+                }
+            }
+            else
+            {
+                scene.button("Proceed", "newEpisode(false)");
+            }
+        }
+        else {
+            scene.button("Proceed", "newEpisode()");
+        }
+    }
+}
+
+function determineTrapped() {
+    let amountTrapped;
+    if (currentcast.length >= 8) {
+        amountTrapped = Math.floor(Math.random() * 4) + 1;
+    } else {
+        amountTrapped = Math.floor(Math.random() * 2) + 1;
+    }
+
+    const trapped = [];
+    const shuffled = [...currentcast].sort(() => 0.5 - Math.random());
+
+    for (let i = 0; i < amountTrapped; i++) {
+        trapped.push(shuffled[i]);
+    }
+    const scene = new Scene();
+    scene.clean();
+    trapped.forEach(c => {
+        trappedguests.push(c);
+        c.trapped = true;
+        scene.image(c.image);
+        scene.paragraph(c.name + " has been kidnapped and trapped in the mansion.");
+    })
+    scene.button("Proceed", "newEpisode(true)");
+}
+
+function determinePoisoned() {
+    const scene = new Scene();
+    scene.clean();
+
+    let poisoned = currentcast[Math.floor(Math.random() * currentcast.length)];
+    scene.image(poisoned.image);
+    scene.paragraph(poisoned.name + " starts spitting out blood, they have been poisoned by the mansion.");
+    let successRate = Math.floor(Math.random() * 100);
+    if (successRate < 50) {
+        currentcast = currentcast.filter(c => c !== poisoned);
+        deadcast.push(poisoned);
+        scene.paragraph(`The guests fail to get the cure in time, and ${poisoned.name} dies....`);
+    } else {
+        scene.paragraph(`The guests succeed to get the cure in time, and ${poisoned.name} is cured!`);
+    }
+    scene.button("Proceed", "newEpisode(true)");
+}
+
+function newEpisode(eventOngoing) {
+    if (eventOngoing === false) {
+        currentepisode++;
+    }
+
+    const scene = new Scene();
+    scene.clean();
+
+    if (currentcast.length <= 3) {
+        startFinale();
+        return;
+    }
+
+    if (currentepisode === 1) {
+        scene.paragraph(`The guests discover that they have to find ${remainingartifacts} artifacts.`);
+        scene.paragraph(`For each artifact to be cleansed, at least one person must die.`)
+    } else {
+        votedguests = [];
+        votingPool = [];
+        trappedguests = [];
+    }
+
+    const generator = new Discussions(currentcast, trappedguests);
+    generator.run();
+    if (trappedguests.length > 0) {
+        scene.button("Proceed", "findOthers()");
+    } else {
+        scene.button("Proceed", "findArtifact()");
+    }
+}
+
+function findOthers() {
+    const scene = new Scene();
+    scene.clean();
+    scene.title("The guests find the others...");
+    let number = currentcast.length - trappedguests.length;
+    scene.paragraph(`The ${number} come across the trapped guests.`);
+    if (trappedguests.length > 0) {
+        let main = document.getElementById("main-content");
+        let div = document.createElement("div");
+        main.append(div);
+        div.setAttribute("id", "grid");
+        trappedguests.forEach(c => {
+            let image = document.createElement("img");
+            image.src = c.image;
+            image.setAttribute("loading", "lazy");
+            div.append(image);
+        })
+        let trappedNames = trappedguests.map(c => c.name).join(", ");
+        scene.paragraph(`${trappedNames} ${trappedguests.length > 1 ? "have" : "has"} have been found and freed.`);
+    }
+
+    scene.button("Proceed", "findArtifact()");
+}
+
+function findArtifact() {
+    const scene = new Scene();
+    const artifacts = new Artifacts();
+
+    scene.clean();
+    scene.title("The guests find the artifact...");
+    currentMonster = artifacts.monster();
+    let main = document.getElementById("main-content");
+    let div = document.createElement("div");
+    div.setAttribute("id", "grid");
+    main.append(div);
+
+    currentcast.forEach(c => {
+        let img = document.createElement("img");
+        img.src = c.image;
+        img.setAttribute("loading", "lazy");
+        div.append(img);
+    })
+    scene.paragraph(`A ${currentMonster} suddenly chases the guests!`);
+    artifacts.generateNarrative(scene);
+    scene.paragraph(`They find ${artifacts.artifact()}!`);
+    let hardworker = Math.floor(Math.random() * currentcast.length);
+    scene.image(currentcast[hardworker].image);
+    scene.paragraph(`However ${currentcast[hardworker].name} did the most work!`);
+    scene.button("Proceed", "votingCeremony()");
+}
+
+function votingCeremony() {
+    const scene = new Scene();
+    scene.clean();
+    scene.title("The voting ceremony begins...");
+    let main = document.getElementById("main-content");
+    let div = document.createElement("div");
+    div.setAttribute("id", "grid");
+    main.append(div);
+    currentcast.forEach(c => {
+        let img = document.createElement("img");
+        img.src = c.image;
+        img.setAttribute("loading", "lazy");
+        div.append(img);
+    })
+    scene.paragraph(`To cleanse the artifact, the ${currentcast.length} remaining have to vote 2 people.`)
+    scene.paragraph(`One or both of them will die.`);
+    let hr = document.createElement("hr");
+    main.append(hr);
+    let voting = new VotingCeremony();
+    voting.voting();
+    let hr2 = document.createElement("hr");
+    main.append(hr2);
+    scene.button("Proceed", "shuffleVotes()");
+}
+
+function shuffleVotes() {
+    currentcast.forEach(c => {
+        votingPool.push(c.choice);
+    })
+
+    currentcast.forEach(c => {
+        votingPool.push(c.choice);
+    });
+
+    const scene = new Scene();
+    scene.clean();
+    scene.title("The votes are in...");
+
+    scene.paragraph("The first person going into the challenge is...");
+    let person1 = votingPool[Math.floor(Math.random() * votingPool.length)];
+    let remainingPool = votingPool.filter(p => p !== person1);
+    scene.image(person1.image);
+    scene.paragraph(`${person1.name}...`);
+
+    scene.paragraph("The second person going into the challenge is...");
+    let person2 = remainingPool[Math.floor(Math.random() * remainingPool.length)];
+    scene.image(person2.image);
+    scene.paragraph(`${person2.name}...`);
+
+    votedguests.push(person1);
+    votedguests.push(person2);
+
+    scene.button("Proceed", "startChallenge()");
+}
+
+function startChallenge() {
+    const scene = new Scene();
+    const challenge = new Challenge();
+    const artifacts = new Artifacts();
+
+    scene.clean();
+    scene.title("The challenge begins...");
+
+    function createGrid() {
+        const grid = document.createElement("div");
+        grid.id = "grid";
+        scene._main.appendChild(grid);
+        return grid;
+    }
+
+    let votedGuestsGrid = createGrid();
+    const fragment = document.createDocumentFragment();
+    votedguests.forEach(c => {
+        const img = document.createElement("img");
+        img.src = c.image;
+        img.loading = "lazy";
+        fragment.appendChild(img);
+    });
+    votedGuestsGrid.appendChild(fragment);
+
+    scene.paragraph("The two are led to an area.");
+
+    let randomizer = Math.floor(Math.random() * 3);
+    if (currentcast < 4 && randomizer === 2) {
+        randomizer = 0;
+    }
+
+    remainingartifacts--;
+    const randomDeathText = challenge.deathText[Math.floor(Math.random() * challenge.deathText.length)];
+
+    if (randomizer === 0) {
+        const randomArtifactStep = artifacts.steps[Math.floor(Math.random() * artifacts.steps.length)];
+        scene.paragraph(`For the challenge, ${randomArtifactStep}`);
+
+        let doublekill = Math.floor(Math.random() * 100);
+        if (doublekill > 10  || currentcast.length <= 4) {
+            const winner = votedguests[Math.floor(Math.random() * votedguests.length)];
+            const potentialLosers = votedguests.filter(p => p !== winner);
+            const loser = potentialLosers[Math.floor(Math.random() * potentialLosers.length)];
+
+            scene.image(winner.image);
+            scene.paragraph(`${winner.name} wins the challenge.`);
+            scene.image(loser.image);
+            scene.paragraph(`The ${currentMonster} then ${randomDeathText} ${loser.name} to death...`);
+
+            loser.deathepisode = currentepisode;
+            deadcast.push(loser);
+            currentcast = currentcast.filter(c => c !== loser);
+        } else if (doublekill < 10 && currentcast.length > 4) {
+            let main = document.getElementById("main-content");
+            let div = document.createElement("div");
+            div.setAttribute("id", "grid");
+            main.append(div);
+
+            votedguests.forEach(c => {
+                let img = document.createElement("img");
+                img.src = c.image;
+                img.setAttribute("loading", "lazy");
+                div.append(img);
+
+                c.deathepisode = currentepisode;
+                deadcast.push(c);
+                currentcast = currentcast.filter(castMember => castMember !== c);
+            });
+
+            let names = votedguests.map(c => c.name).join(" and ");
+            scene.paragraph(`The ${currentMonster} ${randomDeathText} ${names} to death...`);
+        }
+
+        scene.button("Proceed", "contestantStandings()");
+    } else if (randomizer === 1) {
+        scene.paragraph("In a twist, they get to betray one of their fellow houseguests.");
+
+        let betrayedPerson;
+        let betrayalGrid = createGrid();
+
+        while (true) {
+            if (votedguests[0].choice === votedguests[1].choice) {
+                betrayedPerson = votedguests[0].choice;
+
+                if (votedguests.includes(betrayedPerson)) {
+                    votedguests.forEach(c => {
+                        const others = currentcast.filter(x => x !== c);
+                        c.choice = others[Math.floor(Math.random() * others.length)];
+                    });
+                    continue;
+                }
+
+                const img2 = document.createElement("img");
+                img2.src = votedguests[0].image;
+                img2.loading = "lazy";
+
+                const img3 = document.createElement("img");
+                img3.src = votedguests[1].image;
+                img3.loading = "lazy";
+
+                const img = document.createElement("img");
+                img.src = betrayedPerson.image;
+                img.loading = "lazy";
+
+                betrayalGrid.appendChild(img2);
+                betrayalGrid.appendChild(img3);
+                betrayalGrid.appendChild(img);
+
+                scene.paragraph(`They agree on betraying ${betrayedPerson.name}...`);
+                break;
+
+            } else {
+                const betrayer = votedguests[0];
+                betrayedPerson = betrayer.choice;
+
+                if (votedguests.includes(betrayedPerson)) {
+                    const others = currentcast.filter(c => c !== betrayer);
+                    betrayer.choice = others[Math.floor(Math.random() * others.length)];
+                    continue;
+                }
+
+                const imgBetrayer = document.createElement("img");
+                imgBetrayer.src = betrayer.image;
+                imgBetrayer.loading = "lazy";
+
+                const imgBetrayed = document.createElement("img");
+                imgBetrayed.src = betrayedPerson.image;
+                imgBetrayed.loading = "lazy";
+
+                betrayalGrid.appendChild(imgBetrayer);
+                betrayalGrid.appendChild(imgBetrayed);
+
+                scene.paragraph(`${betrayer.name} chooses to betray ${betrayedPerson.name}`);
+                break;
+            }
+        }
+
+        scene.image(betrayedPerson.image);
+        scene.paragraph(`The ${currentMonster} then ${randomDeathText} ${betrayedPerson.name} to death...`);
+
+        betrayedPerson.deathepisode = currentepisode;
+        deadcast.push(betrayedPerson);
+        currentcast = currentcast.filter(c => c !== betrayedPerson);
+
+        scene.button("Proceed", "contestantStandings()");
+    } else {
+        scene.paragraph("In a twist, they get to pick a partner to compete for them.");
+
+        let grid = createGrid();
+
+        const chosenPartners = [];
+
+        votedguests.forEach(guest => {
+            const eligiblePartners = currentcast.filter(c =>
+                !votedguests.includes(c) && !chosenPartners.includes(c)
+            );
+
+            if (eligiblePartners.length === 0) {
+                console.warn(`No eligible partners left for ${guest.name}`);
+                guest.partner = null;
+            } else {
+                guest.partner = eligiblePartners[Math.floor(Math.random() * eligiblePartners.length)];
+                chosenPartners.push(guest.partner);
+            }
+        });
+
+        votedguests.forEach(guest => {
+            const imgVoter = document.createElement("img");
+            imgVoter.src = guest.image;
+            imgVoter.loading = "lazy";
+
+            const imgPartner = document.createElement("img");
+            imgPartner.src = guest.partner?.image || "default.png";
+            imgPartner.loading = "lazy";
+
+            grid.appendChild(imgVoter);
+            grid.appendChild(imgPartner);
+
+            scene.paragraph(`${guest.name} chooses ${guest.partner?.name || "no one"} to compete for them.`);
+        });
+
+        const winningIndex = Math.floor(Math.random() * 2);
+        const winningGuest = votedguests[winningIndex];
+        const losingGuest = votedguests[1 - winningIndex];
+        const loser = losingGuest;
+
+        scene.image(winningGuest.partner.image);
+        scene.paragraph(`${winningGuest.partner.name} wins the challenge for ${winningGuest.name}!`);
+
+        scene.image(losingGuest.partner.image);
+        scene.paragraph(`But ${losingGuest.partner.name} failed to protect ${loser.name}...`);
+        scene.paragraph(`The ${currentMonster} then ${randomDeathText} ${loser.name} to death...`);
+
+        loser.deathepisode = currentepisode;
+        deadcast.push(loser);
+        currentcast = currentcast.filter(c => c !== loser);
+
+        scene.button("Proceed", "contestantStandings()");
+    }
+}
+
+function contestantStandings() {
+    const scene = new Scene();
+    scene.clean();
+    scene.title("The contestants standings...");
+
+    const main = document.getElementById("main-content");
+
+    const aliveSection = document.createElement("section");
+    aliveSection.classList.add("contestant-section");
+
+    const aliveTitle = document.createElement("h2");
+    aliveTitle.innerText = "Alive";
+    aliveSection.append(aliveTitle);
+
+    const aliveGrid = document.createElement("div");
+    aliveGrid.id = "current-cast";
+    aliveSection.append(aliveGrid);
+
+    currentcast.forEach(c => {
+        const card = document.createElement("div");
+        card.classList.add("cast-item");
+
+        const img = document.createElement("img");
+        img.src = c.image;
+        img.setAttribute("loading", "lazy");
+        card.append(img);
+
+        if (seasonover === false) {
+            const p = document.createElement("p");
+            p.innerText = `${c.name}`;
+            card.append(p);
+        } else {
+            const p = document.createElement("p");
+            p.innerHTML = `${c.name}<br>Winner(s)`;
+            card.append(p);
+        }
+
+
+        aliveGrid.append(card);
+    });
+
+    main.append(aliveSection);
+
+    const deadSection = document.createElement("section");
+    deadSection.classList.add("contestant-section");
+
+    const deadTitle = document.createElement("h2");
+    deadTitle.innerText = "Dead";
+    deadSection.append(deadTitle);
+
+    const deadGrid = document.createElement("div");
+    deadGrid.id = "current-cast";
+    deadSection.append(deadGrid);
+
+    deadcast.forEach(c => {
+        const card = document.createElement("div");
+        card.classList.add("cast-item");
+        card.style.filter = "grayscale(100%)";
+        card.style.opacity = "0.6";
+
+        const img = document.createElement("img");
+        img.src = c.image;
+        img.setAttribute("loading", "lazy");
+        card.append(img);
+
+        const p = document.createElement("p");
+        p.innerHTML = `${c.name}<br>Died Ep. ${c.deathepisode}`;
+        card.append(p);
+
+        deadGrid.append(card);
+    });
+
+    main.append(deadSection);
+
+    if (seasonover === false)
+    {
+        scene.button("Proceed", "newEpisode(false)");
+    }
+}
+
+function startFinale() {
+    const scene = new Scene();
+    scene.clean();
+    scene.title("The final mile...");
+    const div = document.createElement("div");
+    div.setAttribute("id", "grid");
+    scene._main.appendChild(div);
+    currentcast.forEach(c => {
+        const img = document.createElement("img");
+        img.src = c.image;
+        img.loading = "lazy";
+        div.appendChild(img);
+    })
+    scene.paragraph(`The remaining guests now dash to find the last artifact.`);
+    scene.paragraph(`A ${currentMonster} tries to stop them!`);
+    let badEnding = Math.floor(Math.random() * 100);
+    if (badEnding < 5) {
+        const div = document.createElement("div");
+        div.setAttribute("id", "grid");
+        scene._main.appendChild(div);
+        currentcast.forEach(c => {
+            const img = document.createElement("img");
+            img.src = c.image;
+            img.loading = "lazy";
+            div.appendChild(img);
+            deadcast.push(c);
+            currentcast = currentcast.filter(c => c !== c);
+        })
+        let deadNames = currentcast.map(c => c.name).join(", ");
+        scene.paragraph(`${deadNames}, have been been caught by ${currentMonster}!`);
+        scene.paragraph(`The guests failed to escape the night...`);
+    } else if (badEnding < 10 && badEnding > 5) {
+        const div = document.createElement("div");
+        div.setAttribute("id", "grid");
+        scene._main.appendChild(div);
+        currentcast.forEach(c => {
+            const img = document.createElement("img");
+            img.src = c.image;
+            img.loading = "lazy";
+            div.appendChild(img);
+        })
+        scene.paragraph(`The guests have found the ${artifact.artifact()}!`);
+
+        let thirdplace = currentcast[Math.floor(Math.random() * currentcast.length)];
+        scene.image(thirdplace.image);
+        scene.paragraph(`However ${thirdplace.name} has been caught and killed by ${currentMonster}!`);
+        deadcast.push(thirdplace);
+        currentcast = currentcast.filter(c => c !== thirdplace);
+
+        currentcast.forEach(c => {
+            const img = document.createElement("img");
+            img.src = c.image;
+            img.loading = "lazy";
+            div.appendChild(img);
+        })
+        scene.paragraph("They have escaped the night...")
+    } else {
+        let artifact = new Artifacts();
+        const div = document.createElement("div");
+        div.setAttribute("id", "grid");
+        scene._main.appendChild(div);
+        currentcast.forEach(c => {
+            const img = document.createElement("img");
+            img.src = c.image;
+            img.loading = "lazy";
+            div.appendChild(img);
+        })
+        scene.paragraph(`The guests have found the ${artifact.artifact()}!`);
+        scene.paragraph("They have escaped the night...")
+    }
+    seasonover = true;
+
+    scene.button("Proceed", "contestantStandings()");
+}

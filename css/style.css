@@ -327,6 +327,13 @@ header {
     }
 }
 
+#dead {
+    filter: saturate(0);
+}
+
+h2 {
+    text-align: center;
+}
 #hidden {
     display: none;
     visibility: hidden;
