@@ -1023,7 +1023,7 @@ function contestantStandings() {
         card.append(img);
 
         const p = document.createElement("p");
-        p.innerHTML = `${c.name}<br>Died Ep. ${c.deathepisode}`;
+        p.innerHTML = `${c.name}<br><small>(Died Ep. ${c.deathepisode})</small>`;
         card.append(p);
 
         deadGrid.append(card);
@@ -1062,10 +1062,11 @@ function startFinale() {
             img.src = c.image;
             img.loading = "lazy";
             div.appendChild(img);
+            c.deathepisode = currentepisode;
             deadcast.push(c);
-            currentcast = currentcast.filter(c => c !== c);
         })
         let deadNames = currentcast.map(c => c.name).join(", ");
+        currentcast = currentcast.filter(c => c !== c);
         scene.paragraph(`${deadNames}, have been been caught by ${currentMonster}!`);
         scene.paragraph(`The guests failed to escape the night...`);
     } else if (badEnding < 10 && badEnding > 5) {
