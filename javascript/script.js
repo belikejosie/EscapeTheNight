@@ -39,38 +39,38 @@ if (window.location.pathname.includes("index")) {
     const searchInput = document.getElementById("contestant-search");
     const dropdown = document.getElementById("search-dropdown");
 
-    searchInput.addEventListener("index", () => {
-    const query = searchInput.value.trim().toLowerCase();
+    searchInput.addEventListener("input", () => {
+        const query = searchInput.value.trim().toLowerCase();
 
-    if (!query) {
-        dropdown.style.display = "none";
-        dropdown.innerHTML = "";
-        return;
-    }
-
-    const matches = allContestants.filter(c => c.displayName.toLowerCase().includes(query));
-
-    if (matches.length === 0) {
-        dropdown.style.display = "none";
-        dropdown.innerHTML = "";
-        return;
-    }
-
-    dropdown.innerHTML = matches.map(c => `<div data-name="${c.displayName}">${c.displayName}</div>`).join("");
-    dropdown.style.display = "block";
-
-    dropdown.querySelectorAll("div").forEach(item => {
-        item.addEventListener("click", () => {
-            const selectedName = item.getAttribute("data-name");
-            searchInput.value = selectedName;
-
-            const selectedContestant = allContestants.find(c => c.displayName === selectedName);
-            if (selectedContestant && !currentcast.includes(selectedContestant)) {
-                currentcast.push(selectedContestant);
-                updateCastScreen();
-            }
+        if (!query) {
             dropdown.style.display = "none";
             dropdown.innerHTML = "";
+            return;
+        }
+
+        const matches = allContestants.filter(c => c.displayName.toLowerCase().includes(query));
+
+        if (matches.length === 0) {
+            dropdown.style.display = "none";
+            dropdown.innerHTML = "";
+            return;
+        }
+
+        dropdown.innerHTML = matches.map(c => `<div data-name="${c.displayName}">${c.displayName}</div>`).join("");
+        dropdown.style.display = "block";
+
+        dropdown.querySelectorAll("div").forEach(item => {
+            item.addEventListener("click", () => {
+                const selectedName = item.getAttribute("data-name");
+                searchInput.value = selectedName;
+
+                const selectedContestant = allContestants.find(c => c.displayName === selectedName);
+                if (selectedContestant && !currentcast.includes(selectedContestant)) {
+                    currentcast.push(selectedContestant);
+                    updateCastScreen();
+                }
+                dropdown.style.display = "none";
+                dropdown.innerHTML = "";
             });
         });
     });
