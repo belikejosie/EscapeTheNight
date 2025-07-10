@@ -92,10 +92,19 @@ class Contestant {
 
         this.choice = null;
         this.partner = null;
-        this.deathepisdode = 0;
+        this.deathepisode = 0;
+        this.relationships = []
     }
+
     get displayName() {
         return this.name;
+    }
+
+    changeRelationship(otherName, amount) {
+        if (!(otherName in this.relationships)) {
+            this.relationships[otherName] = 0;
+        }
+        this.relationships[otherName] += amount;
     }
 }
 
@@ -199,6 +208,8 @@ class Discussions {
         this.trappedguests = trappedguests;
         this.availableContestants = this.currentcast.filter(c => !trappedguests.includes(c));
 
+        this.ensureRelationships();
+
         this.searchActions = [
             a => `${a.name} investigates alone.`,
             a => `${a.name} rests.`,
@@ -216,70 +227,123 @@ class Discussions {
         ];
 
         this.dualActions = [
-            (a, b) => `${a.name} and ${b.name} get into a heated argument.`,
-            (a, b) => `${a.name} gets into an alliance with ${b.name}.`,
-            (a, b) => `${a.name} and ${b.name} hang out.`,
-            (a, b) => `${a.name} pushes ${b.name} into a wall during an argument.`,
-            (a, b) => `${a.name} screams at ${b.name}.`,
+            {
+                action: (a, b) => `${a.name} and ${b.name} get into a heated argument.`,
+                effect: (a, b) => this.changeRelationship(a, b, -10),
+                minRelation: -100,
+                maxRelation: 20
+            },
+            {
+                action: (a, b) => `${a.name} gets into an alliance with ${b.name}.`,
+                effect: (a, b) => this.changeRelationship(a, b, +20),
+                minRelation: -10,
+                maxRelation: 100
+            },
+            {
+                action: (a, b) => `${a.name} and ${b.name} hang out.`,
+                effect: (a, b) => this.changeRelationship(a, b, +10),
+                minRelation: -20,
+                maxRelation: 100
+            },
+            {
+                action: (a, b) => `${a.name} pushes ${b.name} into a wall during an argument.`,
+                effect: (a, b) => this.changeRelationship(a, b, -20),
+                minRelation: -100,
+                maxRelation: -25
+            },
+            {
+                action: (a, b) => `${a.name} screams at ${b.name}.`,
+                effect: (a, b) => this.changeRelationship(a, b, -10),
+                minRelation: -100,
+                maxRelation: 5
+            }
         ];
     }
 
-    run() {
-        const scene = new Scene();
-        const totalEvents = 4 + Math.floor(Math.random() * 4);
-
-        for (let i = 0; i < totalEvents; i++) {
-            const roll = Math.random();
-
-            if (roll < 0.5) {
-                const person = this.getRandomContestant();
-                const line = this.getRandom(this.searchActions)(person);
-                scene.image(person.image);
-                scene.paragraph(line);
-
-            } else if (roll < 0.75) {
-                const person = this.getRandomContestant();
-                const line = this.getRandom(this.idleActions)(person);
-                scene.image(person.image);
-                scene.paragraph(line);
-
-            } else if (this.availableContestants.length >= 2) {
-                const [a, b] = this.getTwoDistinctRandomContestants();
-                const line = this.getRandom(this.dualActions)(a, b);
-
-                const main = document.getElementById("main-content");
-                const div = document.createElement("div");
-                div.setAttribute("id", "grid");
-                main.append(div);
-
-                [a, b].forEach(contestant => {
-                    const img = document.createElement("img");
-                    img.src = contestant.image;
-                    img.setAttribute("loading", "lazy");
-                    img.alt = contestant.name;
-                    div.append(img);
-                });
-
-                scene.paragraph(line);
+    ensureRelationships() {
+        this.currentcast.forEach(c => {
+            if (!c.relationships) {
+                c.relationships = {};
             }
+            this.currentcast.forEach(other => {
+                if (other !== c && !(other.name in c.relationships)) {
+                    c.relationships[other.name] = 0;
+                }
+            });
+        });
+    }
+
+    changeRelationship(a, b, amount) {
+        if (!a.relationships || !b.relationships) return;
+
+        if (!(b.name in a.relationships)) a.relationships[b.name] = 0;
+        if (!(a.name in b.relationships)) b.relationships[a.name] = 0;
+
+        a.relationships[b.name] += amount;
+        b.relationships[a.name] += amount;
+    }
+
+    runSoloInteraction(scene) {
+        if (this.availableContestants.length < 1) return;
+        const a = this.pickOne(this.availableContestants);
+
+        const actionText = this.pickOne(this.searchActions)(a);
+
+        for (const otherName in a.relationships) {
+            a.relationships[otherName] += 1;
         }
+
+        let main = document.getElementById("main-content");
+        let div = document.createElement("div");
+        main.append(div);
+        div.id = "grid";
+
+        let img = document.createElement("img");
+        img.src = a.image;
+        img.loading = "lazy";
+        div.appendChild(img);
+
+        scene.paragraph(actionText);
     }
 
-    getRandom(list) {
-        return list[Math.floor(Math.random() * list.length)];
+    runDualInteraction(scene) {
+        if (this.availableContestants.length < 2) return;
+
+        const a = this.pickOne(this.availableContestants);
+        const b = this.pickOne(this.availableContestants.filter(x => x !== a));
+
+        const rel = a.relationships?.[b.name] ?? 0;
+
+        let validActions = this.dualActions.filter(action =>
+            rel >= action.minRelation && rel <= action.maxRelation
+        );
+
+        if (validActions.length === 0) {
+            validActions = this.dualActions;
+        }
+
+        const chosen = this.pickOne(validActions);
+
+        let main = document.getElementById("main-content");
+        let div = document.createElement("div");
+        main.append(div);
+        div.id = "grid";
+
+        let img1 = document.createElement("img");
+        let img2 = document.createElement("img");
+        img1.src = a.image;
+        img2.src = b.image;
+        img1.loading = "lazy";
+        img2.loading = "lazy";
+        div.appendChild(img1);
+        div.appendChild(img2);
+
+        scene.paragraph(chosen.action(a, b));
+        chosen.effect(a, b);
     }
 
-    getRandomContestant() {
-        return this.availableContestants[Math.floor(Math.random() * this.availableContestants.length)];
-    }
-
-    getTwoDistinctRandomContestants() {
-        let first = this.getRandomContestant();
-        let second;
-        do {
-            second = this.getRandomContestant();
-        } while (second === first);
-        return [first, second];
+    pickOne(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
     }
 }
 
@@ -313,13 +377,27 @@ class VotingCeremony {
         this.currentcast.forEach(c => {
             const possibleVotes = this.currentcast.filter(member => member !== c);
 
-            const votedIndex = Math.floor(Math.random() * possibleVotes.length);
-            const votedmember = possibleVotes[votedIndex];
+            let votedmember;
+            const randomFactor = 0.1;
+
+            if (Math.random() < randomFactor) {
+                votedmember = possibleVotes[Math.floor(Math.random() * possibleVotes.length)];
+            } else {
+                const weighted = [];
+                possibleVotes.forEach(target => {
+                    const rel = c.relationships?.[target.name] ?? 0;
+                    const hostility = Math.max(1, 100 - (rel + 50));
+                    for (let i = 0; i < hostility; i++) {
+                        weighted.push(target);
+                    }
+                });
+                votedmember = weighted[Math.floor(Math.random() * weighted.length)];
+            }
 
             c.choice = votedmember;
 
+            // Visuals
             const main = scene._main;
-
             const div = document.createElement("div");
             div.id = "grid";
             main.appendChild(div);
@@ -534,6 +612,14 @@ function startSimulation(predefinedcast = null) {
     if (predefinedcast !== null) {
         predefinedCast(predefinedcast);
     }
+    currentcast.forEach(c => {
+        c.relationships = {};
+        currentcast.forEach(other => {
+            if (other !== c) {
+                c.relationships[other.name] = 0;
+            }
+        });
+    });
     if (currentcast.length <= 3) {
         alert("You need at least 4 contestants to start the simulation!");
     } else {
@@ -641,12 +727,62 @@ function newEpisode(eventOngoing) {
     }
 
     const generator = new Discussions(currentcast, trappedguests);
-    generator.run();
+    if (currentcast.length > 8) {
+        for (let i = 0; i < 6; i++) {
+            generator.runDualInteraction(scene);
+            generator.runSoloInteraction(scene);
+        }
+    } else if (currentcast.length > 4) {
+        for (let i = 0; i < 4; i++) {
+            generator.runDualInteraction(scene);
+            generator.runSoloInteraction(scene);
+        }
+    }
+    else {
+        for (let i = 0; i < 2; i++) {
+            generator.runDualInteraction(scene);
+            generator.runSoloInteraction(scene);
+        }
+    }
+    printAlliancesAndEnemies(currentcast);
     if (trappedguests.length > 0) {
         scene.button("Proceed", "findOthers()");
     } else {
         scene.button("Proceed", "findArtifact()");
     }
+}
+
+function printAlliancesAndEnemies(cast) {
+    console.log("Report!");
+
+    cast.forEach(c => {
+        const allies = [];
+        const enemies = [];
+
+        for (const [name, value] of Object.entries(c.relationships)) {
+            if (value >= 10) {
+                allies.push(`${name} (${value})`);
+            } else if (value <= -10) {
+                enemies.push(`${name} (${value})`);
+            }
+        }
+
+        console.log(`\n👤 ${c.name}:`);
+
+        if (allies.length > 0) {
+            console.log(`Allies: ${allies.join(", ")}`);
+        } else {
+            console.log(`Allies: None`);
+        }
+
+        if (enemies.length > 0) {
+            console.log(`Enemies: ${enemies.join(", ")}`);
+        } else {
+            console.log(`Enemies: None`);
+        }
+    });
+
+    console.log("\n🔚 End of report.\n");
 }
 
 function findOthers() {
@@ -836,6 +972,18 @@ function startChallenge() {
         let betrayedPerson;
         let betrayalGrid = createGrid();
 
+        function weightedChoiceBasedOnRelations(betrayer, candidates) {
+            const weighted = [];
+            candidates.forEach(target => {
+                const rel = betrayer.relationships?.[target.name] ?? 0;
+                const hostility = Math.max(1, 100 - (rel + 50));
+                for (let i = 0; i < hostility; i++) {
+                    weighted.push(target);
+                }
+            });
+            return weighted[Math.floor(Math.random() * weighted.length)];
+        }
+
         while (true) {
             if (votedguests[0].choice === votedguests[1].choice) {
                 betrayedPerson = votedguests[0].choice;
@@ -843,7 +991,7 @@ function startChallenge() {
                 if (votedguests.includes(betrayedPerson)) {
                     votedguests.forEach(c => {
                         const others = currentcast.filter(x => x !== c);
-                        c.choice = others[Math.floor(Math.random() * others.length)];
+                        c.choice = weightedChoiceBasedOnRelations(c, others);
                     });
                     continue;
                 }
@@ -869,11 +1017,14 @@ function startChallenge() {
 
             } else {
                 const betrayer = votedguests[0];
+                let others = currentcast.filter(c => c !== betrayer);
+
+                betrayer.choice = weightedChoiceBasedOnRelations(betrayer, others);
                 betrayedPerson = betrayer.choice;
 
                 if (votedguests.includes(betrayedPerson)) {
-                    const others = currentcast.filter(c => c !== betrayer);
-                    betrayer.choice = others[Math.floor(Math.random() * others.length)];
+                    others = currentcast.filter(c => c !== betrayer);
+                    betrayer.choice = weightedChoiceBasedOnRelations(betrayer, others);
                     continue;
                 }
 
@@ -905,6 +1056,7 @@ function startChallenge() {
         scene.paragraph("In a twist, they get to pick a partner to compete for them.");
 
         let grid = createGrid();
+        let discussions = new Discussions(currentcast, trappedguests);
 
         const chosenPartners = [];
 
@@ -943,9 +1095,11 @@ function startChallenge() {
         const loser = losingGuest;
 
         scene.image(winningGuest.partner.image);
+        discussions.changeRelationship(winningGuest, winningGuest.partner, 50);
         scene.paragraph(`${winningGuest.partner.name} wins the challenge for ${winningGuest.name}!`);
 
         scene.image(losingGuest.partner.image);
+        discussions.changeRelationship(losingGuest, losingGuest.partner, -100);
         scene.paragraph(`But ${losingGuest.partner.name} failed to protect ${loser.name}...`);
         scene.paragraph(`The ${currentMonster} then ${randomDeathText} ${loser.name} to death...`);
 
