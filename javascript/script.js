@@ -532,6 +532,11 @@ let currentMonster = null;
 let currentepisode = 0;
 let remainingartifacts = 0;
 
+let currentBetrayals = 0;
+let maximumBetrayals = 1;
+let currentPairChallenges = 0;
+let maximumPairChallenges = 2;
+
 let seasonover = false;
 let forcenone = false;
 let forcetrapped = false;
@@ -612,17 +617,32 @@ function startSimulation(predefinedcast = null) {
     if (predefinedcast !== null) {
         predefinedCast(predefinedcast);
     }
-    currentcast.forEach(c => {
-        c.relationships = {};
-        currentcast.forEach(other => {
-            if (other !== c) {
-                c.relationships[other.name] = 0;
-            }
-        });
-    });
     if (currentcast.length <= 3) {
         alert("You need at least 4 contestants to start the simulation!");
     } else {
+        currentcast.forEach(c => {
+            c.relationships = {};
+            currentcast.forEach(other => {
+                if (other !== c) {
+                    c.relationships[other.name] = 0;
+                }
+            });
+        });
+
+        if (document.location.pathname.includes("index")) {
+            const betrayInput = document.getElementById("betray-limit");
+            const pairsInput = document.getElementById("pairs-limit");
+
+            if (betrayInput && betrayInput.value.trim() !== "")
+                maximumBetrayals = parseInt(betrayInput.value);
+
+            if (pairsInput && pairsInput.value.trim() !== "")
+                maximumPairChallenges = parseInt(pairsInput.value);
+        } else {
+            maximumBetrayals = 1;
+            maximumPairChallenges = 2;
+        }
+
         remainingartifacts = currentcast.length - 2;
         const scene = new Scene();
         scene.title("The guests arrive at the manor");
@@ -923,6 +943,13 @@ function startChallenge() {
         randomizer = 0;
     }
 
+    if (currentPairChallenges === maximumPairChallenges && randomizer === 2) {
+        randomizer = 0;
+    }
+    if (currentBetrayals === maximumBetrayals && randomizer === 1) {
+        randomizer = 0;
+    }
+
     remainingartifacts--;
     const randomDeathText = challenge.deathText[Math.floor(Math.random() * challenge.deathText.length)];
 
@@ -971,7 +998,7 @@ function startChallenge() {
 
         let betrayedPerson;
         let betrayalGrid = createGrid();
-
+        currentBetrayals++;
         function weightedChoiceBasedOnRelations(betrayer, candidates) {
             const weighted = [];
             candidates.forEach(target => {
@@ -1058,6 +1085,7 @@ function startChallenge() {
         let grid = createGrid();
         let discussions = new Discussions(currentcast, trappedguests);
 
+        currentPairChallenges++;
         const chosenPartners = [];
 
         votedguests.forEach(guest => {

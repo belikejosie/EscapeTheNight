@@ -1,7 +1,7 @@
-/* Global box-sizing */
 *, *::before, *::after {
     box-sizing: border-box;
 }
+
 
 body {
     backdrop-filter: blur(5px);
@@ -13,12 +13,11 @@ body {
     font-family: 'Roboto', sans-serif;
 
     display: flex;
-    flex-direction: column;        /* stack children vertically */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    padding: 20px;
 }
 
 #current-title {
@@ -31,9 +30,11 @@ body {
     font-size: 0.8rem;
     font-weight: 700;
     text-align: center;
-    margin: 0 0 20px;       /* margin below only */
+    margin: 0 0 20px;
     color: #fff;
     text-shadow: 0 0 5px rgba(0,0,0,0.7);
+
+    margin-top: 60px;
 }
 
 #main-content {
@@ -238,12 +239,12 @@ body {
 
 hr {
     border: none;
-    height: 4px; /* Increase height */
+    height: 4px;
     background: linear-gradient(90deg, #be9871, #AD7F4FFF);
     border-radius: 10px;
     margin: 20px 0;
     box-shadow: 0 0 8px #be9871;
-    width: 100%; /* Ensure it's full width of its container */
+    width: 100%;
 }
 
 @media (max-width: 600px) {
@@ -253,6 +254,10 @@ hr {
 
     .input[type="search"] {
         max-width: 100%;
+    }
+
+    body {
+        padding-top: 100px;
     }
 }
 
@@ -383,6 +388,19 @@ h2 {
 
 #add-custom-contestant input[type="text"]::placeholder {
     color: #ccc;
+}
+
+#debug-commands input[type="number"]{
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    margin-bottom: 10px;
+    box-shadow: inset 0 0 5px rgba(255,255,255,0.2);
+    outline: none;
 }
 
 #add-custom-contestant button {

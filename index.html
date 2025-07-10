@@ -38,7 +38,13 @@
             <p>No contestants have been added...</p>
         </section>
         <hr>
+
         <div id="add-custom-contestant">
+            <div id="debug-commands">
+                <input id="betray-limit" type="number" placeholder="Maximum Betrayals">
+                <input id="pairs-limit" type="number" placeholder="Maximum Pair Challenges">
+            </div>
+            <hr>
             <input type="text" id="custom-name" placeholder="Enter contestant name" />
             <input type="file" id="custom-image" accept="image/*" />
             <button onclick="addCustomContestant()">Add Contestant</button>
