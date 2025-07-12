@@ -126,40 +126,34 @@ function loadCustomContestants() {
 if (window.location.pathname.includes("custom")) {
     renderCustomList();
 
+    document.getElementById("add-custom-btn").addEventListener("click", (e) => {
+        e.preventDefault();
+        addCustomContestant();
+    });
+
     function addCustomContestant() {
         const nameInput = document.getElementById("custom-name");
-        const imageInput = document.getElementById("custom-image");
+        const imageUrlInput = document.getElementById("custom-image-url"); // new text input for URL
         const name = nameInput.value.trim();
+        const imageUrl = imageUrlInput ? imageUrlInput.value.trim() : "";
 
         if (!name) {
             alert("Please enter a name.");
             return;
         }
 
-        let imageUrl = "image/SAE_Logo.webp";
+        const finalImageUrl = imageUrl || "image/SAE_Logo.webp";
 
-        function addAndSave(imageUrl) {
-            const newContestant = new Contestant(name);
-            newContestant.image = imageUrl;
-            newContestant.isCustom = true;
+        const newContestant = new Contestant(name);
+        newContestant.image = finalImageUrl;
+        newContestant.isCustom = true;
 
-            currentcast.push(newContestant);
-            allContestants.push(newContestant);
-            saveCustomContestants();
+        currentcast.push(newContestant);
+        allContestants.push(newContestant);
+        saveCustomContestants();
 
-            nameInput.value = "";
-            imageInput.value = "";
-        }
-
-        if (imageInput.files.length > 0) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                addAndSave(e.target.result);
-            };
-            reader.readAsDataURL(imageInput.files[0]);
-        } else {
-            addAndSave(imageUrl);
-        }
+        nameInput.value = "";
+        if (imageUrlInput) imageUrlInput.value = "";
     }
 
     function deleteCustomContestant(contestant) {
@@ -195,7 +189,7 @@ if (window.location.pathname.includes("custom")) {
                     if (!confirm(`Delete contestant "${c.displayName}"?`)) return;
 
                     deleteCustomContestant(c);
-                    
+
                     saveCustomContestants();
                     renderCustomList();
                 });
