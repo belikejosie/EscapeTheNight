@@ -126,7 +126,7 @@ body {
     gap: 1rem;
 }
 
-#grid {
+#grid, #custom-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

@@ -1,16 +1,21 @@
-// ALL CLASSES //
 class Contestant {
-    constructor(name, image = "null") {
+    constructor(name, image = null) {
         this.name = name;
-        const imageName = (!image || image === "null") ? "null" : image;
-        this.image = `image/contestants/${imageName}.webp`;
+
+        if (!image || image === "null") {
+            this.image = "image/contestants/null.webp";
+        } else if (image.startsWith("http") || image.startsWith("data:") || image.includes("/")) {
+            this.image = image;
+        } else {
+            this.image = `image/contestants/${image}.webp`;
+        }
 
         this.isCustom = false;
 
         this.choice = null;
         this.partner = null;
         this.deathepisode = 0;
-        this.relationships = []
+        this.relationships = {};
     }
 
     get displayName() {
@@ -99,41 +104,45 @@ let forcepoisoned = false;
 
 loadCustomContestants();
 
-function saveCustomContestants() {
-    const customContestants = currentcast.filter(c => c.isCustom);
-    localStorage.setItem("customContestants", JSON.stringify(customContestants.map(c => ({
-        name: c.name,
-        image: c.image,
-        isCustom: true
-    }))));
-}
-
 function loadCustomContestants() {
     const data = localStorage.getItem("customContestants");
     if (data) {
         const arr = JSON.parse(data);
         arr.forEach(obj => {
             if (!allContestants.some(c => c.name === obj.name)) {
-                const c = new Contestant(obj.name);
-                c.image = obj.image;
+                const c = new Contestant(obj.name, obj.image);
                 c.isCustom = true;
                 allContestants.push(c);
+                currentcast.push(c);
             }
         });
     }
 }
 
-if (window.location.pathname.includes("custom")) {
+window.addEventListener("DOMContentLoaded", () => {
+    if (!window.location.pathname.includes("custom")) return;
     renderCustomList();
 
-    document.getElementById("add-custom-btn").addEventListener("click", (e) => {
-        e.preventDefault();
-        addCustomContestant();
-    });
+    const addBtn = document.getElementById("add-custom-btn");
+    if (addBtn) {
+        addBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            addCustomContestant();
+        });
+    }
+
+    function saveCustomContestants() {
+        const customContestants = currentcast.filter(c => c.isCustom);
+        localStorage.setItem("customContestants", JSON.stringify(customContestants.map(c => ({
+            name: c.name,
+            image: c.image,
+            isCustom: true
+        }))));
+    }
 
     function addCustomContestant() {
         const nameInput = document.getElementById("custom-name");
-        const imageUrlInput = document.getElementById("custom-image-url"); // new text input for URL
+        const imageUrlInput = document.getElementById("custom-image-url");
         const name = nameInput.value.trim();
         const imageUrl = imageUrlInput ? imageUrlInput.value.trim() : "";
 
@@ -144,13 +153,13 @@ if (window.location.pathname.includes("custom")) {
 
         const finalImageUrl = imageUrl || "image/SAE_Logo.webp";
 
-        const newContestant = new Contestant(name);
-        newContestant.image = finalImageUrl;
+        const newContestant = new Contestant(name, finalImageUrl);
         newContestant.isCustom = true;
 
         currentcast.push(newContestant);
         allContestants.push(newContestant);
         saveCustomContestants();
+        renderCustomList();
 
         nameInput.value = "";
         if (imageUrlInput) imageUrlInput.value = "";
@@ -168,6 +177,7 @@ if (window.location.pathname.includes("custom")) {
 
     function renderCustomList() {
         const container = document.getElementById("custom-list");
+        if (!container) return;
         container.innerHTML = "";
 
         allContestants.forEach(c => {
@@ -176,21 +186,19 @@ if (window.location.pathname.includes("custom")) {
                 castItem.classList.add("cast-item", "custom-contestant");
 
                 castItem.innerHTML = `
-                <img loading="lazy" src="${c.image}" alt="${c.displayName}">
-                <p>${c.displayName}</p>
-                <button class="remove-btn" title="Delete">
-                    <i class="fas fa-trash"></i>
-                </button>
-            `;
+          <img loading="lazy" src="${c.image}" alt="${c.name}">
+          <p>${c.name}</p>
+          <button class="remove-btn" title="Delete">
+            <i class="fas fa-trash"></i>
+          </button>
+        `;
 
                 castItem.querySelector(".remove-btn").addEventListener("click", (e) => {
                     e.stopPropagation();
 
-                    if (!confirm(`Delete contestant "${c.displayName}"?`)) return;
+                    if (!confirm(`Delete contestant "${c.name}"?`)) return;
 
                     deleteCustomContestant(c);
-
-                    saveCustomContestants();
                     renderCustomList();
                 });
 
@@ -198,7 +206,7 @@ if (window.location.pathname.includes("custom")) {
             }
         });
     }
-}
+});
 
 if (window.location.pathname.includes("index")) {
     const searchInput = document.getElementById("contestant-search");
