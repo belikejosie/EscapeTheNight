@@ -325,11 +325,69 @@ header {
     outline: none;
 }
 
-@media (max-width: 600px) {
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.hamburger {
+    display: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
     .nav-list {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(8px);
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        gap: 10px;
+        z-index: 1000;
+        padding: 0;
+        margin: 0;
+        gap: 30px;
+
+        display: none;
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .nav-list li a {
+        font-size: 1.5rem;
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .nav-list li a:hover {
+        color: #be9871;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    .hamburger {
+        display: block;
+        font-size: 1.8rem;
+        color: white;
+        cursor: pointer;
     }
 }
 
@@ -420,28 +478,4 @@ h2 {
     background-color: #AD7F4FFF;
     box-shadow: 0 2px 6px rgb(190, 152, 113);
     outline: none;
-}
-
-#discord-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background-color: #5865F2;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    z-index: 9999;
-    text-decoration: none;
-    font-size: 24px;
-    transition: transform 0.2s ease;
-}
-
-#discord-button:hover {
-    transform: scale(1.1);
-    background-color: #4752C4;
 }
