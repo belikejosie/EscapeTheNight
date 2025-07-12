@@ -87,6 +87,7 @@ let trappedguests = [];
 let votingPool = [];
 let votedguests = [];
 
+let currentEnvironment = "";
 let currentMonster = null;
 
 let currentepisode = 0;
@@ -755,6 +756,14 @@ function startSimulation(predefinedcast = null) {
             });
         });
 
+        let environment = document.getElementById("environment").value;
+        if (environment === "random") {
+            let randomIndex = Math.floor(Math.random() * environment.length);
+            currentEnvironment = environment[randomIndex];
+        } else {
+            currentEnvironment = environment;
+        }
+
         if (document.location.pathname.includes("index")) {
             const betrayInput = document.getElementById("betray-limit");
             const pairsInput = document.getElementById("pairs-limit");
@@ -771,11 +780,11 @@ function startSimulation(predefinedcast = null) {
 
         remainingartifacts = currentcast.length - 2;
         const scene = new Scene();
-        scene.title("The guests arrive at the manor");
+        scene.title(`The guests arrive at the ${currentEnvironment}`);
         scene.clean();
         currentcast.forEach(c => {
             scene.image(c.image);
-            scene.paragraph(c.name + " arrives at the manor.");
+            scene.paragraph(c.name + ` arrives at the ${currentEnvironment}.`);
         });
         currentepisode++;
         if (currentepisode === 1) {
@@ -826,7 +835,7 @@ function determineTrapped() {
         trappedguests.push(c);
         c.trapped = true;
         scene.image(c.image);
-        scene.paragraph(c.name + " has been kidnapped and trapped in the mansion.");
+        scene.paragraph(c.name + `has been kidnapped and trapped in the ${currentEnvironment}.`);
     })
     scene.button("Proceed", "newEpisode(true)");
 }
@@ -837,7 +846,7 @@ function determinePoisoned() {
 
     let poisoned = currentcast[Math.floor(Math.random() * currentcast.length)];
     scene.image(poisoned.image);
-    scene.paragraph(poisoned.name + " starts spitting out blood, they have been poisoned by the mansion.");
+    scene.paragraph(poisoned.name + ` starts spitting out blood, they have been poisoned by the ${currentEnvironment}.`);
     let successRate = Math.floor(Math.random() * 100);
     if (successRate < 50) {
         currentcast = currentcast.filter(c => c !== poisoned);
