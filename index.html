@@ -11,6 +11,7 @@
             <ul class="nav-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="predefined.html">Predefined Cast</a></li>
+                <li><a href="custom.html">Custom</a></li>
             </ul>
         </nav>
     </header>
@@ -39,15 +40,9 @@
         </section>
         <hr>
 
-        <div id="add-custom-contestant">
-            <div id="debug-commands">
-                <input id="betray-limit" type="number" placeholder="Maximum Betrayals">
-                <input id="pairs-limit" type="number" placeholder="Maximum Pair Challenges">
-            </div>
-            <hr>
-            <input type="text" id="custom-name" placeholder="Enter contestant name" />
-            <input type="file" id="custom-image" accept="image/*" />
-            <button onclick="addCustomContestant()">Add Contestant</button>
+        <div id="debug-commands">
+            <input id="betray-limit" type="number" placeholder="Maximum Betrayals">
+            <input id="pairs-limit" type="number" placeholder="Maximum Pair Challenges">
         </div>
         <button id="simulation-start"onclick="startSimulation()">Start Simulation</button>
     </div>

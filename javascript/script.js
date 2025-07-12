@@ -1,4 +1,131 @@
-if (window.location.pathname.includes("index")) {
+// ALL CLASSES //
+class Contestant {
+    constructor(name, image = "null") {
+        this.name = name;
+        const imageName = (!image || image === "null") ? "null" : image;
+        this.image = `image/contestants/${imageName}.webp`;
+
+        this.isCustom = false;
+
+        this.choice = null;
+        this.partner = null;
+        this.deathepisode = 0;
+        this.relationships = []
+    }
+
+    get displayName() {
+        return this.name;
+    }
+
+    changeRelationship(otherName, amount) {
+        if (!(otherName in this.relationships)) {
+            this.relationships[otherName] = 0;
+        }
+        this.relationships[otherName] += amount;
+    }
+}
+
+// ALL CONTESTANTS //
+// - SEASON 1 - //
+const joeygraceffa = new Contestant("Joey Graceffa", "JoeyGraceffa");
+const evagutowski = new Contestant("Eva Gutowski", "EvaGutowski");
+const oliwhite = new Contestant("Oli White", "OliWhite");
+const lelepons = new Contestant("Lele Pons", "LelePons");
+const timothydelaghetto = new Contestant("Timothy DeLaGhetto", "TimothyDeLaGhetto");
+const matthaag = new Contestant("Matt Haag", "MattHaag");
+const sierrafurtado = new Contestant("Sierra Furtado", "SierraFurtado");
+const glozellgreen = new Contestant("GloZell Green", "GloZellGreen");
+const justineezarik = new Contestant("Justine Ezarik", "JustineEzarik");
+const andreabrooks = new Contestant("Andrea Brooks", "AndreaBrooks");
+const shanedawson = new Contestant("Shane Dawson", "ShaneDawson");
+
+const season1cast = [joeygraceffa, evagutowski, oliwhite, lelepons, timothydelaghetto, matthaag, sierrafurtado, glozellgreen, justineezarik, andreabrooks, shanedawson];
+
+// - SEASON 2 - //
+const andrearussett = new Contestant("Andrea Russett", "AndreaRussett");
+const tyleroakley = new Contestant("Tyler Oakley", "TylerOakley");
+const alexwassabi = new Contestant("Alex Wassabi", "AlexWassabi");
+const gabbiehanna = new Contestant("Gabbie Hanna", "GabbieHanna");
+const tanamongeau = new Contestant("Tana Mongeau", "TanaMongeau");
+const lizakoshy = new Contestant("Liza Koshy", "LizaKoshy");
+const destormpower = new Contestant("DeStorm Power", "DeStormPower");
+const jessewellens = new Contestant("Jesse Wellens", "JesseWellens");
+const laurenriihimaki = new Contestant("Lauren Riihimaki", "LaurenRiihimaki");
+
+const season2cast = [joeygraceffa, andrearussett, tyleroakley, alexwassabi, gabbiehanna, tanamongeau, lizakoshy, destormpower, jessewellens, laurenriihimaki];
+
+// - SEASON 3 - //
+const matthewpatrick = new Contestant("Matthew Patrick", "MatthewPatrick");
+const nikitadragun = new Contestant("Nikita Dragun", "NikitaDragun");
+const mannymua = new Contestant("Manny MUA", "MannyMUA");
+const rosannapansino = new Contestant("Rosanna Pansino", "RosannaPansino");
+const safiyanygaard = new Contestant("Safiya Nygaard", "SafiyaNygaard");
+const colleenballinger = new Contestant("Colleen Ballinger", "ColleenBallinger");
+const tealadunn = new Contestant("Teala Dunn", "TealaDunn");
+const guavajuice = new Contestant("Guava Juice", "GuavaJuice");
+const jccaylen = new Contestant("JC Caylen", "JCCaylen");
+
+const season3cast = [joeygraceffa, matthewpatrick, nikitadragun, mannymua, rosannapansino, safiyanygaard, colleenballinger, tealadunn, guavajuice, jccaylen];
+
+// - SEASON 4 - //
+const bretmanrock = new Contestant("Bretman Rock", "BretmanRock");
+
+const season4cast = [joeygraceffa, colleenballinger, bretmanrock, rosannapansino, alexwassabi, gabbiehanna, tanamongeau, destormpower, timothydelaghetto, justineezarik];
+
+// - THE MOVIE - //
+const moviecast = [joeygraceffa, rosannapansino, tanamongeau, matthewpatrick, nikitadragun, bretmanrock, lelepons];
+
+const allContestants = [joeygraceffa, evagutowski, oliwhite, lelepons, timothydelaghetto, matthaag, sierrafurtado, glozellgreen, justineezarik, andreabrooks, shanedawson, andrearussett, tyleroakley, alexwassabi, gabbiehanna, tanamongeau, lizakoshy, destormpower, jessewellens, laurenriihimaki, matthewpatrick, nikitadragun, mannymua, rosannapansino, safiyanygaard, colleenballinger, tealadunn, guavajuice, jccaylen, bretmanrock];
+let currentcast = [];
+let deadcast = [];
+let trappedguests = [];
+let votingPool = [];
+let votedguests = [];
+
+let currentMonster = null;
+
+let currentepisode = 0;
+let remainingartifacts = 0;
+
+let currentBetrayals = 0;
+let maximumBetrayals = 1;
+let currentPairChallenges = 0;
+let maximumPairChallenges = 2;
+
+let seasonover = false;
+let forcenone = false;
+let forcetrapped = false;
+let forcepoisoned = false;
+
+loadCustomContestants();
+
+function saveCustomContestants() {
+    const customContestants = currentcast.filter(c => c.isCustom);
+    localStorage.setItem("customContestants", JSON.stringify(customContestants.map(c => ({
+        name: c.name,
+        image: c.image,
+        isCustom: true
+    }))));
+}
+
+function loadCustomContestants() {
+    const data = localStorage.getItem("customContestants");
+    if (data) {
+        const arr = JSON.parse(data);
+        arr.forEach(obj => {
+            if (!allContestants.some(c => c.name === obj.name)) {
+                const c = new Contestant(obj.name);
+                c.image = obj.image;
+                c.isCustom = true;
+                allContestants.push(c);
+            }
+        });
+    }
+}
+
+if (window.location.pathname.includes("custom")) {
+    renderCustomList();
+
     function addCustomContestant() {
         const nameInput = document.getElementById("custom-name");
         const imageInput = document.getElementById("custom-image");
@@ -11,31 +138,75 @@ if (window.location.pathname.includes("index")) {
 
         let imageUrl = "image/SAE_Logo.webp";
 
+        function addAndSave(imageUrl) {
+            const newContestant = new Contestant(name);
+            newContestant.image = imageUrl;
+            newContestant.isCustom = true;
+
+            currentcast.push(newContestant);
+            allContestants.push(newContestant);
+            saveCustomContestants();
+
+            nameInput.value = "";
+            imageInput.value = "";
+        }
+
         if (imageInput.files.length > 0) {
             const reader = new FileReader();
             reader.onload = function (e) {
-                imageUrl = e.target.result;
-
-                const newContestant = new Contestant(name);
-                newContestant.image = imageUrl;
-
-                currentcast.push(newContestant);
-                updateCastScreen();
-
-                nameInput.value = "";
-                imageInput.value = "";
+                addAndSave(e.target.result);
             };
             reader.readAsDataURL(imageInput.files[0]);
         } else {
-            const newContestant = new Contestant(name);
-            newContestant.image = imageUrl;
-            currentcast.push(newContestant);
-            updateCastScreen();
-
-            nameInput.value = "";
+            addAndSave(imageUrl);
         }
     }
 
+    function deleteCustomContestant(contestant) {
+        const idxCurrent = currentcast.findIndex(c => c.name === contestant.name);
+        if (idxCurrent !== -1) currentcast.splice(idxCurrent, 1);
+
+        const idxAll = allContestants.findIndex(c => c.name === contestant.name);
+        if (idxAll !== -1) allContestants.splice(idxAll, 1);
+
+        saveCustomContestants();
+    }
+
+    function renderCustomList() {
+        const container = document.getElementById("custom-list");
+        container.innerHTML = "";
+
+        allContestants.forEach(c => {
+            if (c.isCustom) {
+                const castItem = document.createElement("div");
+                castItem.classList.add("cast-item", "custom-contestant");
+
+                castItem.innerHTML = `
+                <img loading="lazy" src="${c.image}" alt="${c.displayName}">
+                <p>${c.displayName}</p>
+                <button class="remove-btn" title="Delete">
+                    <i class="fas fa-trash"></i>
+                </button>
+            `;
+
+                castItem.querySelector(".remove-btn").addEventListener("click", (e) => {
+                    e.stopPropagation();
+
+                    if (!confirm(`Delete contestant "${c.displayName}"?`)) return;
+
+                    deleteCustomContestant(c);
+                    
+                    saveCustomContestants();
+                    renderCustomList();
+                });
+
+                container.appendChild(castItem);
+            }
+        });
+    }
+}
+
+if (window.location.pathname.includes("index")) {
     const searchInput = document.getElementById("contestant-search");
     const dropdown = document.getElementById("search-dropdown");
 
@@ -81,31 +252,6 @@ if (window.location.pathname.includes("index")) {
             dropdown.innerHTML = "";
         }
     });
-}
-
-// ALL CLASSES //
-class Contestant {
-    constructor(name, image = "null") {
-        this.name = name;
-        const imageName = (!image || image === "null") ? "null" : image;
-        this.image = `image/contestants/${imageName}.webp`;
-
-        this.choice = null;
-        this.partner = null;
-        this.deathepisode = 0;
-        this.relationships = []
-    }
-
-    get displayName() {
-        return this.name;
-    }
-
-    changeRelationship(otherName, amount) {
-        if (!(otherName in this.relationships)) {
-            this.relationships[otherName] = 0;
-        }
-        this.relationships[otherName] += amount;
-    }
 }
 
 class Artifacts {
@@ -438,6 +584,17 @@ class Challenge {
 class Scene {
     constructor(_main) {
         this._main = document.getElementById("main-content");
+        this._advanceCode = null;
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowRight" && this._advanceCode) {
+                try {
+                    eval(this._advanceCode);
+                } catch (err) {
+                    console.error("Error in eval():", err);
+                }
+            }
+        });
     }
 
     clean() {
@@ -462,85 +619,15 @@ class Scene {
         this._main.appendChild(image);
     }
 
-    button(text, event) {
+    button(text, eventCode) {
         let button = document.createElement("button");
         button.innerHTML = text;
-        button.setAttribute("onclick", event);
+        button.setAttribute("onclick", eventCode);
         this._main.appendChild(button);
+
+        this._advanceCode = eventCode;
     }
 }
-
-// ALL CONTESTANTS //
-// - SEASON 1 - //
-const joeygraceffa = new Contestant("Joey Graceffa", "JoeyGraceffa");
-const evagutowski = new Contestant("Eva Gutowski", "EvaGutowski");
-const oliwhite = new Contestant("Oli White", "OliWhite");
-const lelepons = new Contestant("Lele Pons", "LelePons");
-const timothydelaghetto = new Contestant("Timothy DeLaGhetto", "TimothyDeLaGhetto");
-const matthaag = new Contestant("Matt Haag", "MattHaag");
-const sierrafurtado = new Contestant("Sierra Furtado", "SierraFurtado");
-const glozellgreen = new Contestant("GloZell Green", "GloZellGreen");
-const justineezarik = new Contestant("Justine Ezarik", "JustineEzarik");
-const andreabrooks = new Contestant("Andrea Brooks", "AndreaBrooks");
-const shanedawson = new Contestant("Shane Dawson", "ShaneDawson");
-
-const season1cast = [joeygraceffa, evagutowski, oliwhite, lelepons, timothydelaghetto, matthaag, sierrafurtado, glozellgreen, justineezarik, andreabrooks, shanedawson];
-
-// - SEASON 2 - //
-const andrearussett = new Contestant("Andrea Russett", "AndreaRussett");
-const tyleroakley = new Contestant("Tyler Oakley", "TylerOakley");
-const alexwassabi = new Contestant("Alex Wassabi", "AlexWassabi");
-const gabbiehanna = new Contestant("Gabbie Hanna", "GabbieHanna");
-const tanamongeau = new Contestant("Tana Mongeau", "TanaMongeau");
-const lizakoshy = new Contestant("Liza Koshy", "LizaKoshy");
-const destormpower = new Contestant("DeStorm Power", "DeStormPower");
-const jessewellens = new Contestant("Jesse Wellens", "JesseWellens");
-const laurenriihimaki = new Contestant("Lauren Riihimaki", "LaurenRiihimaki");
-
-const season2cast = [joeygraceffa, andrearussett, tyleroakley, alexwassabi, gabbiehanna, tanamongeau, lizakoshy, destormpower, jessewellens, laurenriihimaki];
-
-// - SEASON 3 - //
-const matthewpatrick = new Contestant("Matthew Patrick", "MatthewPatrick");
-const nikitadragun = new Contestant("Nikita Dragun", "NikitaDragun");
-const mannymua = new Contestant("Manny MUA", "MannyMUA");
-const rosannapansino = new Contestant("Rosanna Pansino", "RosannaPansino");
-const safiyanygaard = new Contestant("Safiya Nygaard", "SafiyaNygaard");
-const colleenballinger = new Contestant("Colleen Ballinger", "ColleenBallinger");
-const tealadunn = new Contestant("Teala Dunn", "TealaDunn");
-const guavajuice = new Contestant("Guava Juice", "GuavaJuice");
-const jccaylen = new Contestant("JC Caylen", "JCCaylen");
-
-const season3cast = [joeygraceffa, matthewpatrick, nikitadragun, mannymua, rosannapansino, safiyanygaard, colleenballinger, tealadunn, guavajuice, jccaylen];
-
-// - SEASON 4 - //
-const bretmanrock = new Contestant("Bretman Rock", "BretmanRock");
-
-const season4cast = [joeygraceffa, colleenballinger, bretmanrock, rosannapansino, alexwassabi, gabbiehanna, tanamongeau, destormpower, timothydelaghetto, justineezarik];
-
-// - THE MOVIE - //
-const moviecast = [joeygraceffa, rosannapansino, tanamongeau, matthewpatrick, nikitadragun, bretmanrock, lelepons];
-
-const allContestants = [joeygraceffa, evagutowski, oliwhite, lelepons, timothydelaghetto, matthaag, sierrafurtado, glozellgreen, justineezarik, andreabrooks, shanedawson, andrearussett, tyleroakley, alexwassabi, gabbiehanna, tanamongeau, lizakoshy, destormpower, jessewellens, laurenriihimaki, matthewpatrick, nikitadragun, mannymua, rosannapansino, safiyanygaard, colleenballinger, tealadunn, guavajuice, jccaylen, bretmanrock];
-let currentcast = [];
-let deadcast = [];
-let trappedguests = [];
-let votingPool = [];
-let votedguests = [];
-
-let currentMonster = null;
-
-let currentepisode = 0;
-let remainingartifacts = 0;
-
-let currentBetrayals = 0;
-let maximumBetrayals = 1;
-let currentPairChallenges = 0;
-let maximumPairChallenges = 2;
-
-let seasonover = false;
-let forcenone = false;
-let forcetrapped = false;
-let forcepoisoned = false;
 
 // ALL FUNCTIONS //
 function randomContestant() {
@@ -586,26 +673,30 @@ function updateCastScreen() {
     const castContainer = document.getElementById("current-cast");
 
     castContainer.innerHTML = "";
-
     if (currentcast.length === 0) {
         castContainer.innerHTML = `<p>No contestants have been added...</p>`;
         return;
     }
     currentcast.forEach(c => {
-        const castItem = document.createElement("div");
-        castItem.classList.add("cast-item");
-        castItem.innerHTML = `
+        createCard(c)
+    });
+}
+function createCard(c) {
+    const castContainer = document.getElementById("current-cast");
+    const castItem = document.createElement("div");
+
+    castItem.classList.add("cast-item");
+    castItem.innerHTML = `
             <img loading="lazy" src="${c.image}" alt="${c.displayName}">
             <p>${c.displayName}</p>
             <button class="remove-btn"><i class="fas fa-times"></i></button>
         `;
-        const removeButton = castItem.querySelector(".remove-btn");
-        removeButton.addEventListener("click", () => {
-            removeContestant(c);
-        });
-
-        castContainer.appendChild(castItem);
+    const removeButton = castItem.querySelector(".remove-btn");
+    removeButton.addEventListener("click", () => {
+        removeContestant(c);
     });
+
+    castContainer.appendChild(castItem);
 }
 
 function removeContestant(contestant) {
@@ -886,10 +977,6 @@ function shuffleVotes() {
         votingPool.push(c.choice);
     })
 
-    currentcast.forEach(c => {
-        votingPool.push(c.choice);
-    });
-
     const scene = new Scene();
     scene.clean();
     scene.title("The votes are in...");
@@ -939,7 +1026,7 @@ function startChallenge() {
     scene.paragraph("The two are led to an area.");
 
     let randomizer = Math.floor(Math.random() * 3);
-    if (currentcast < 4 && randomizer === 2) {
+    if (currentcast.length < 4 && randomizer === 2) {
         randomizer = 0;
     }
 

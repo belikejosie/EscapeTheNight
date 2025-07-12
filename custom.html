@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ETN - Simulator</title>
+    <link rel="icon" type="image/x-icon" href="image/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <header>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="predefined.html">Predefined Cast</a></li>
+                <li><a href="custom.html">Custom</a></li>
+            </ul>
+        </nav>
+    </header>
+</head>
+<body>
+<a href="https://discord.gg/kzdyfGy9f6"
+   id="discord-button"
+   title="Join our Discord!"
+   target="_blank"
+   rel="noopener noreferrer">
+    <i class="fab fa-discord"></i>
+</a>
+
+<div id="current-title">
+    <h1 id="title-text">Select your dream cast</h1>
+</div>
+<div id="main-content">
+    <div id="custom-list"></div>
+    <div id="add-custom-contestant">
+        <input type="text" id="custom-name" placeholder="Enter contestant name" />
+        <input type="file" id="custom-image" accept="image/*" />
+        <button onclick="addCustomContestant()">Add Contestant</button>
+    </div>
+</div>
+<script src="javascript/script.js"></script>
+</body>
+</html>
