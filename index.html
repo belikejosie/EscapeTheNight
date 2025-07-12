@@ -40,9 +40,21 @@
         </section>
         <hr>
 
-        <div id="debug-commands">
-            <input id="betray-limit" type="number" placeholder="Maximum Betrayals">
-            <input id="pairs-limit" type="number" placeholder="Maximum Pair Challenges">
+        <div id="debug-corner">
+            <button id="debug-button" title="Debug Settings">
+                <i class="fas fa-cog"></i>
+            </button>
+
+            <div id="debug-menu" class="hidden">
+                <label>
+                    Max Betrayals:
+                    <input id="betray-limit" type="number" placeholder="e.g. 1">
+                </label>
+                <label>
+                    Max Pair Challenges:
+                    <input id="pairs-limit" type="number" placeholder="e.g. 2">
+                </label>
+            </div>
         </div>
         <button id="simulation-start"onclick="startSimulation()">Start Simulation</button>
     </div>

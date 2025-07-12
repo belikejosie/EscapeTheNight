@@ -209,6 +209,15 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 if (window.location.pathname.includes("index")) {
+    window.addEventListener("DOMContentLoaded", () => {
+        const button = document.getElementById("debug-button");
+        const menu = document.getElementById("debug-menu");
+
+        button.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+        });
+    });
+
     const searchInput = document.getElementById("contestant-search");
     const dropdown = document.getElementById("search-dropdown");
 
