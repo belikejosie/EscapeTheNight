@@ -587,20 +587,22 @@ class Scene {
     constructor(_main) {
         this._main = document.getElementById("main-content");
         this._advanceCode = null;
+    }
 
-        document.addEventListener("keydown", (event) => {
-            if (event.key === "ArrowRight" && this._advanceCode) {
-                try {
-                    eval(this._advanceCode);
-                } catch (err) {
-                    console.error("Error in eval():", err);
-                }
-            }
-        });
+    rightClick() {
+        if (!document.getElementById("inputRightKey")) {
+            let text = document.createElement("input");
+            text.setAttribute("class", "textRightClick");
+            text.setAttribute("id", "inputRightKey");
+            text.setAttribute("type", "text");
+            text.setAttribute("readonly", "readonly");
+            this._main.parentElement.appendChild(text);
+        }
     }
 
     clean() {
         this._main.innerHTML = "";
+        this.rightClick();
     }
 
     title(text) {
@@ -627,7 +629,29 @@ class Scene {
         button.setAttribute("onclick", eventCode);
         this._main.appendChild(button);
 
-        this._advanceCode = eventCode;
+        let textField = document.getElementById("inputRightKey");
+        if (!textField) return;
+
+        textField.focus();
+
+        const handleKey = (e) => {
+            if (e.key === "ArrowRight") {
+                e.preventDefault();
+                textField.remove();
+                button.click();
+            }
+        };
+
+        textField.addEventListener("keydown", handleKey, { once: true });
+
+        document.addEventListener("click", (e) => {
+            if (
+                e.target.id !== "inputRightKey" &&
+                e.target.tagName !== "SELECT"
+            ) {
+                textField.focus();
+            }
+        });
     }
 }
 

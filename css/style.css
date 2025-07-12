@@ -339,6 +339,15 @@ header {
     cursor: pointer;
 }
 
+.textRightClick {
+    opacity:0;
+    filter:alpha(opacity=0);
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+}
+
 @media (max-width: 768px) {
     .nav-list {
         position: fixed;
