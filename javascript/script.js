@@ -689,19 +689,27 @@ function predefinedCast(cast) {
     if (cast === season1cast) {
         forcepoisoned = true;
         forcetrapped = false;
+
+        currentEnvironment = "mansion";
     }
     else if (cast === season2cast) {
         forcepoisoned = false;
         forcetrapped = true;
+
+        currentEnvironment = "palace";
     }
     else if (cast === season3cast) {
         forcenone = true;
         forcepoisoned = false;
         forcetrapped = false;
+
+        currentEnvironment = "carnival";
     }
     else if (cast === season4cast) {
         forcepoisoned = false;
         forcetrapped = true;
+
+        currentEnvironment = "tomb";
     }
 }
 
@@ -741,9 +749,32 @@ function removeContestant(contestant) {
 }
 
 function startSimulation(predefinedcast = null) {
+    let environment = document.getElementById("environment").value;
+    if (environment === "random") {
+        let randomIndex = Math.floor(Math.random() * environment.length);
+        currentEnvironment = environment[randomIndex];
+    } else {
+        currentEnvironment = environment;
+    }
+
+    if (document.location.pathname.includes("index")) {
+        const betrayInput = document.getElementById("betray-limit");
+        const pairsInput = document.getElementById("pairs-limit");
+
+        if (betrayInput && betrayInput.value.trim() !== "")
+            maximumBetrayals = parseInt(betrayInput.value);
+
+        if (pairsInput && pairsInput.value.trim() !== "")
+            maximumPairChallenges = parseInt(pairsInput.value);
+    } else {
+        maximumBetrayals = 1;
+        maximumPairChallenges = 2;
+    }
+
     if (predefinedcast !== null) {
         predefinedCast(predefinedcast);
     }
+
     if (currentcast.length <= 3) {
         alert("You need at least 4 contestants to start the simulation!");
     } else {
@@ -755,28 +786,6 @@ function startSimulation(predefinedcast = null) {
                 }
             });
         });
-
-        let environment = document.getElementById("environment").value;
-        if (environment === "random") {
-            let randomIndex = Math.floor(Math.random() * environment.length);
-            currentEnvironment = environment[randomIndex];
-        } else {
-            currentEnvironment = environment;
-        }
-
-        if (document.location.pathname.includes("index")) {
-            const betrayInput = document.getElementById("betray-limit");
-            const pairsInput = document.getElementById("pairs-limit");
-
-            if (betrayInput && betrayInput.value.trim() !== "")
-                maximumBetrayals = parseInt(betrayInput.value);
-
-            if (pairsInput && pairsInput.value.trim() !== "")
-                maximumPairChallenges = parseInt(pairsInput.value);
-        } else {
-            maximumBetrayals = 1;
-            maximumPairChallenges = 2;
-        }
 
         remainingartifacts = currentcast.length - 2;
         const scene = new Scene();
