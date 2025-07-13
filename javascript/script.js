@@ -83,9 +83,11 @@ const moviecast = [joeygraceffa, rosannapansino, tanamongeau, matthewpatrick, ni
 const allContestants = [joeygraceffa, evagutowski, oliwhite, lelepons, timothydelaghetto, matthaag, sierrafurtado, glozellgreen, justineezarik, andreabrooks, shanedawson, andrearussett, tyleroakley, alexwassabi, gabbiehanna, tanamongeau, lizakoshy, destormpower, jessewellens, laurenriihimaki, matthewpatrick, nikitadragun, mannymua, rosannapansino, safiyanygaard, colleenballinger, tealadunn, guavajuice, jccaylen, bretmanrock];
 let currentcast = [];
 let deadcast = [];
+let entirecast = [];
 let trappedguests = [];
 let votingPool = [];
 let votedguests = [];
+let foundArtifacts = [];
 
 let currentEnvironment = "";
 let currentMonster = null;
@@ -102,6 +104,7 @@ let seasonover = false;
 let forcenone = false;
 let forcetrapped = false;
 let forcepoisoned = false;
+let resurrectedcontestant = false;
 
 loadCustomContestants();
 
@@ -286,8 +289,10 @@ class Artifacts {
             "the demonic configuration",
             "the night killer doll",
             "the psychedelic swirl",
-            "the wickerman doll",
-            "the collar of control"
+            "the wicker-man doll",
+            "the collar of control",
+            "the lazarus box",
+            "the harp"
         ];
 
         this.steps = [
@@ -332,11 +337,12 @@ class Artifacts {
 
     artifact() {
         const index = Math.floor(Math.random() * this.artifacts.length);
+        foundArtifacts.push(this.artifacts[index]);
         return this.artifacts[index];
     }
 
     generateNarrative(scene) {
-        const numSteps = 3 + Math.floor(Math.random() * 3); // 3 to 5 steps
+        const numSteps = 3 + Math.floor(Math.random() * 3);
         const usedIndexes = new Set();
         const selectedSteps = [];
 
@@ -709,6 +715,9 @@ function predefinedCast(cast) {
         forcetrapped = true;
 
         currentEnvironment = "tomb";
+    } else {
+        const enviorments = ["mansion", "palace", "carnival", "tomb"];
+        currentEnvironment = enviorments[Math.floor(Math.random() * enviorments.length)];
     }
 }
 
@@ -776,6 +785,10 @@ function startSimulation(predefinedcast = null) {
     if (predefinedcast !== null) {
         predefinedCast(predefinedcast);
     }
+
+    currentcast.forEach(c => {
+        entirecast.push(c);
+    })
 
     if (currentcast.length <= 3) {
         alert("You need at least 4 contestants to start the simulation!");
@@ -959,8 +972,22 @@ function findArtifact() {
         div.append(img);
     })
     scene.paragraph(`A ${currentMonster} suddenly chases the guests!`);
+    let hr1 = document.createElement("hr");
+    main.append(hr1);
     artifacts.generateNarrative(scene);
+    let hr2  = document.createElement("hr");
+    main.append(hr2);
     scene.paragraph(`They find ${artifacts.artifact()}!`);
+    if (foundArtifacts.includes("the lazarus box") || foundArtifacts.includes("the harp") && resurrectedcontestant === false && deadcast.length > 0) {
+        scene.paragraph("The artifact has a note, the guests find out they can resurrect a dead houseguest.");
+        const resurrected = deadcast[Math.floor(Math.random() * deadcast.length)];
+        resurrectedcontestant = true;
+        currentcast.push(resurrected);
+        deadcast = deadcast.filter(c => c !== resurrected);
+
+        scene.image(resurrected.image);
+        scene.paragraph(`${resurrected.name} has been resurrected, they are back in the game!`);
+    }
     let hardworker = Math.floor(Math.random() * currentcast.length);
     scene.image(currentcast[hardworker].image);
     scene.paragraph(`However ${currentcast[hardworker].name} did the most work!`);
@@ -1323,6 +1350,8 @@ function contestantStandings() {
     if (seasonover === false)
     {
         scene.button("Proceed", "newEpisode(false)");
+    } else {
+        scene.button("Proceed", "startSimulation(entirecast)");
     }
 }
 
