@@ -749,12 +749,15 @@ function removeContestant(contestant) {
 
 function startSimulation(predefinedcast = null) {
     if (document.location.pathname.includes("index")) {
-        let environment = document.getElementById("environment").value;
-        if (environment === "random") {
-            let randomIndex = Math.floor(Math.random() * environment.length);
-            currentEnvironment = environment[randomIndex];
+        let environment = document.getElementById("environment");
+        if (environment.value === "random") {
+            const validOptions = Array.from(environment.options)
+                .filter(opt => opt.value !== "random");
+
+            const randomIndex = Math.floor(Math.random() * validOptions.length);
+            currentEnvironment = validOptions[randomIndex].value;
         } else {
-            currentEnvironment = environment;
+            currentEnvironment = environment.value;
         }
 
         const betrayInput = document.getElementById("betray-limit");
@@ -907,45 +910,11 @@ function newEpisode(eventOngoing) {
             generator.runSoloInteraction(scene);
         }
     }
-    printAlliancesAndEnemies(currentcast);
     if (trappedguests.length > 0) {
         scene.button("Proceed", "findOthers()");
     } else {
         scene.button("Proceed", "findArtifact()");
     }
-}
-
-function printAlliancesAndEnemies(cast) {
-    console.log("Report!");
-
-    cast.forEach(c => {
-        const allies = [];
-        const enemies = [];
-
-        for (const [name, value] of Object.entries(c.relationships)) {
-            if (value >= 10) {
-                allies.push(`${name} (${value})`);
-            } else if (value <= -10) {
-                enemies.push(`${name} (${value})`);
-            }
-        }
-
-        console.log(`\n👤 ${c.name}:`);
-
-        if (allies.length > 0) {
-            console.log(`Allies: ${allies.join(", ")}`);
-        } else {
-            console.log(`Allies: None`);
-        }
-
-        if (enemies.length > 0) {
-            console.log(`Enemies: ${enemies.join(", ")}`);
-        } else {
-            console.log(`Enemies: None`);
-        }
-    });
-
-    console.log("\n🔚 End of report.\n");
 }
 
 function findOthers() {
@@ -983,7 +952,6 @@ function findArtifact() {
     let div = document.createElement("div");
     div.setAttribute("id", "grid");
     main.append(div);
-
     currentcast.forEach(c => {
         let img = document.createElement("img");
         img.src = c.image;
