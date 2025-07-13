@@ -114,7 +114,6 @@ function loadCustomContestants() {
                 const c = new Contestant(obj.name, obj.image);
                 c.isCustom = true;
                 allContestants.push(c);
-                currentcast.push(c);
             }
         });
     }
@@ -749,15 +748,15 @@ function removeContestant(contestant) {
 }
 
 function startSimulation(predefinedcast = null) {
-    let environment = document.getElementById("environment").value;
-    if (environment === "random") {
-        let randomIndex = Math.floor(Math.random() * environment.length);
-        currentEnvironment = environment[randomIndex];
-    } else {
-        currentEnvironment = environment;
-    }
-
     if (document.location.pathname.includes("index")) {
+        let environment = document.getElementById("environment").value;
+        if (environment === "random") {
+            let randomIndex = Math.floor(Math.random() * environment.length);
+            currentEnvironment = environment[randomIndex];
+        } else {
+            currentEnvironment = environment;
+        }
+
         const betrayInput = document.getElementById("betray-limit");
         const pairsInput = document.getElementById("pairs-limit");
 
