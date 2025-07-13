@@ -757,6 +757,14 @@ function removeContestant(contestant) {
 }
 
 function startSimulation(predefinedcast = null) {
+    currentcast = [];
+    deadcast = [];
+    trappedguests = [];
+    currentepisode = 0;
+    foundArtifacts = [];
+    remainingartifacts = 0;
+    seasonover = false;
+
     if (document.location.pathname.includes("index")) {
         let environment = document.getElementById("environment");
         if (environment.value === "random") {
@@ -1351,7 +1359,7 @@ function contestantStandings() {
     {
         scene.button("Proceed", "newEpisode(false)");
     } else {
-        scene.button("Proceed", "startSimulation(entirecast)");
+        scene.button("Resimulate", "startSimulation(entirecast)");
     }
 }
 
