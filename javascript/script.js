@@ -695,28 +695,28 @@ function predefinedCast(cast) {
         forcepoisoned = true;
         forcetrapped = false;
 
-        currentEnvironment = "mansion";
+        currentEnvironment = "estate";
     }
     else if (cast === season2cast) {
         forcepoisoned = false;
         forcetrapped = true;
 
-        currentEnvironment = "palace";
+        currentEnvironment = "mansion";
     }
     else if (cast === season3cast) {
         forcenone = true;
         forcepoisoned = false;
         forcetrapped = false;
 
-        currentEnvironment = "carnival";
+        currentEnvironment = "town";
     }
     else if (cast === season4cast) {
         forcepoisoned = false;
         forcetrapped = true;
 
-        currentEnvironment = "tomb";
+        currentEnvironment = "museum";
     } else {
-        const enviorments = ["mansion", "palace", "carnival", "tomb"];
+        const enviorments = ["estate", "mansion", "town", "museum"];
         currentEnvironment = enviorments[Math.floor(Math.random() * enviorments.length)];
     }
 }
@@ -781,7 +781,7 @@ function startSimulation(predefinedcast = null) {
     } else {
         maximumBetrayals = 1;
         maximumPairChallenges = 2;
-        currentEnvironment = "Mansion";
+        currentEnvironment = "estate";
     }
 
     if (predefinedcast !== null) {
@@ -818,6 +818,17 @@ function startSimulation(predefinedcast = null) {
     const scene = new Scene();
     scene.title(`The guests arrive at the ${currentEnvironment}`);
     scene.clean();
+
+    const environmentBackgrounds = {
+        estate: "image/estate.webp",
+        mansion: "image/mansion.webp",
+        town: "image/town.webp",
+        museum: "image/museum.webp"
+    };
+
+    if (environmentBackgrounds[currentEnvironment]) {
+        document.body.style.backgroundImage = `url(${environmentBackgrounds[currentEnvironment]})`;
+    }
 
     currentcast.forEach(c => {
         scene.image(c.image);
@@ -901,6 +912,17 @@ function newEpisode(eventOngoing) {
 
     const scene = new Scene();
     scene.clean();
+
+    const environmentBackgrounds = {
+        estate: "image/estate.webp",
+        mansion: "image/mansion.webp",
+        town: "image/town.webp",
+        museum: "image/museum.webp"
+    };
+
+    if (environmentBackgrounds[currentEnvironment]) {
+        document.body.style.backgroundImage = `url(${environmentBackgrounds[currentEnvironment]})`;
+    }
 
     if (currentcast.length <= 3) {
         startFinale();
@@ -1014,6 +1036,7 @@ function votingCeremony() {
     const scene = new Scene();
     scene.clean();
     scene.title("The voting ceremony begins...");
+    document.body.style.backgroundImage = `url(image/bg.webp)`;
     let main = document.getElementById("main-content");
     let div = document.createElement("div");
     div.setAttribute("id", "grid");

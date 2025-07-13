@@ -50,10 +50,10 @@
                     Setting:
                     <select id="environment">
                         <option value="random">Random</option>
+                        <option value="estate">Estate</option>
                         <option value="mansion">Mansion</option>
-                        <option value="palace">Palace</option>
-                        <option value="carnival">Carnival</option>
-                        <option value="tomb">Tomb</option>
+                        <option value="town">Everlock</option>
+                        <option value="museum">Museum</option>
                     </select>
                 </label>
                 <label>
@@ -68,6 +68,15 @@
         </div>
         <button id="simulation-start"onclick="startSimulation()">Start Simulation</button>
     </div>
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+        kofiWidgetOverlay.draw('belikejosie', {
+            'type': 'floating-chat',
+            'floating-chat.donateButton.text': 'Tip Me',
+            'floating-chat.donateButton.background-color': '#ff5f5f',
+            'floating-chat.donateButton.text-color': '#fff'
+        });
+    </script>
     <script>
         const hamburger = document.getElementById("hamburger");
         const navList = document.getElementById("nav-list");
