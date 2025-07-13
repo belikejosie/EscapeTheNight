@@ -757,16 +757,8 @@ function removeContestant(contestant) {
 }
 
 function startSimulation(predefinedcast = null) {
-    currentcast = [];
-    deadcast = [];
-    trappedguests = [];
-    currentepisode = 0;
-    foundArtifacts = [];
-    remainingartifacts = 0;
-    seasonover = false;
-
-    if (document.location.pathname.includes("index")) {
-        let environment = document.getElementById("environment");
+    if (document.location.pathname.includes("index") && !predefinedcast) {
+        const environment = document.getElementById("environment");
         if (environment.value === "random") {
             const validOptions = Array.from(environment.options)
                 .filter(opt => opt.value !== "random");
@@ -780,70 +772,81 @@ function startSimulation(predefinedcast = null) {
         const betrayInput = document.getElementById("betray-limit");
         const pairsInput = document.getElementById("pairs-limit");
 
-        if (betrayInput && betrayInput.value.trim() !== "")
-            maximumBetrayals = parseInt(betrayInput.value);
+        maximumBetrayals = betrayInput && betrayInput.value.trim() !== ""
+            ? parseInt(betrayInput.value) : 1;
 
-        if (pairsInput && pairsInput.value.trim() !== "")
-            maximumPairChallenges = parseInt(pairsInput.value);
+        maximumPairChallenges = pairsInput && pairsInput.value.trim() !== ""
+            ? parseInt(pairsInput.value) : 2;
+
     } else {
         maximumBetrayals = 1;
         maximumPairChallenges = 2;
+        currentEnvironment = "Mansion";
     }
 
     if (predefinedcast !== null) {
+        currentcast = [];
+        deadcast = [];
+        trappedguests = [];
+        foundArtifacts = [];
+        remainingartifacts = 0;
+        currentepisode = 0;
+        seasonover = false;
+        entirecast = [];
+
         predefinedCast(predefinedcast);
     }
 
-    currentcast.forEach(c => {
-        entirecast.push(c);
-    })
-
     if (currentcast.length <= 3) {
         alert("You need at least 4 contestants to start the simulation!");
-    } else {
-        currentcast.forEach(c => {
-            c.relationships = {};
-            currentcast.forEach(other => {
-                if (other !== c) {
-                    c.relationships[other.name] = 0;
-                }
-            });
-        });
+        return;
+    }
 
-        remainingartifacts = currentcast.length - 2;
-        const scene = new Scene();
-        scene.title(`The guests arrive at the ${currentEnvironment}`);
-        scene.clean();
-        currentcast.forEach(c => {
-            scene.image(c.image);
-            scene.paragraph(c.name + ` arrives at the ${currentEnvironment}.`);
+    entirecast = [...currentcast];
+
+    currentcast.forEach(c => {
+        c.relationships = {};
+        currentcast.forEach(other => {
+            if (other !== c) {
+                c.relationships[other.name] = 0;
+            }
         });
-        currentepisode++;
-        if (currentepisode === 1) {
-            if (forcenone === false) {
-                if (forcetrapped) {
+    });
+
+    remainingartifacts = currentcast.length - 2;
+
+    const scene = new Scene();
+    scene.title(`The guests arrive at the ${currentEnvironment}`);
+    scene.clean();
+
+    currentcast.forEach(c => {
+        scene.image(c.image);
+        scene.paragraph(`${c.name} arrives at the ${currentEnvironment}.`);
+    });
+
+    currentepisode++;
+
+    if (currentepisode === 1) {
+        if (forcenone === false) {
+            if (forcetrapped) {
+                scene.button("Proceed", "determineTrapped()");
+            } else if (forcepoisoned) {
+                scene.button("Proceed", "determinePoisoned()");
+            } else {
+                let eventType = Math.floor(Math.random() * 3);
+                if (eventType === 0) {
                     scene.button("Proceed", "determineTrapped()");
-                } else if (forcepoisoned) {
+                } else if (eventType === 1) {
                     scene.button("Proceed", "determinePoisoned()");
                 } else {
-                    let eventType = Math.floor(Math.random() * 3);
-                    if (eventType === 0) {
-                        scene.button("Proceed", "determineTrapped()");
-                    } else if (eventType === 1) {
-                        scene.button("Proceed", "determinePoisoned()");
-                    } else {
-                        scene.button("Proceed", "newEpisode(false)");
-                    }
+                    scene.button("Proceed", "newEpisode(false)");
                 }
             }
-            else
-            {
-                scene.button("Proceed", "newEpisode(false)");
-            }
+        } else {
+            scene.button("Proceed", "newEpisode(false)");
         }
-        else {
-            scene.button("Proceed", "newEpisode()");
-        }
+    } else {
+        scene.button("Proceed", "newEpisode()");
     }
 }
 
