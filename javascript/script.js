@@ -986,8 +986,13 @@ function findArtifact() {
     let hr2  = document.createElement("hr");
     main.append(hr2);
     scene.paragraph(`They find ${artifacts.artifact()}!`);
-    if (foundArtifacts.includes("the lazarus box") || foundArtifacts.includes("the harp") && resurrectedcontestant === false && deadcast.length > 0) {
+    if (
+        (foundArtifacts.includes("the lazarus box") || foundArtifacts.includes("the harp")) &&
+        resurrectedcontestant === false &&
+        deadcast.length > 0
+    ) {
         scene.paragraph("The artifact has a note, the guests find out they can resurrect a dead houseguest.");
+
         const resurrected = deadcast[Math.floor(Math.random() * deadcast.length)];
         resurrectedcontestant = true;
         currentcast.push(resurrected);
