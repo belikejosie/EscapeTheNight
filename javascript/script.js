@@ -281,18 +281,52 @@ class Artifacts {
         ];
 
         this.artifacts = [
-            "the cursed artifact",
-            "the life stone",
+            "the armageddon clock",
+            "the candy gem",
+            "the centre stone",
+            "Colin's gold",
+            "the dark dimension gem",
+            "the demonic configuration",
+            "the dice of death",
+            "the doll",
+            "Garuda's key",
+            "the gear gem",
+            "the glasssed hand",
+            "the guardian angel stone",
+            "the harp of lazarus",
+            "the harpy talisman",
+            "the ice gem",
             "the jack in the box",
+            "a jeweled key",
+            "Pandora's box",
+            "the Priest's cross",
+            "Sireen's magic crystal",
+            "the spider gem",
+            "the spirit board",
+            "the sword of all legends",
+            "the black knight's key",
+            "the cog key",
+            "the collar of control",
+            "the collector's key",
+            "the cosmic sphere",
+            "the crown of oblivion",
+            "a cursed artifact",
+            "the death journal",
+            "the dinosaur's key",
+            "the emperor's key",
+            "the genie's key",
+            "the life stone",
+            "the night killer doll",
+            "the Pharaoh's key",
+            "the pirates key",
+            "the psychedelic swirl",
             "the serpent's eyes",
             "the stature of era",
-            "the demonic configuration",
-            "the night killer doll",
-            "the psychedelic swirl",
+            "the vampire gem",
+            "the war gem",
+            "the werewolf gem",
             "the wicker-man doll",
-            "the collar of control",
-            "the lazarus box",
-            "the harp"
+            "the lazarus box"
         ];
 
         this.steps = [
@@ -606,12 +640,16 @@ class Scene {
 
     rightClick() {
         if (!document.getElementById("inputRightKey")) {
+            const oldInput = document.getElementById("inputRightKey");
+            if (oldInput) oldInput.remove();
+
             let text = document.createElement("input");
             text.setAttribute("class", "textRightClick");
             text.setAttribute("id", "inputRightKey");
             text.setAttribute("type", "text");
             text.setAttribute("readonly", "readonly");
             this._main.parentElement.appendChild(text);
+            text.focus();
         }
     }
 
@@ -1012,7 +1050,7 @@ function findArtifact() {
     main.append(hr2);
     scene.paragraph(`They find ${artifacts.artifact()}!`);
     if (
-        (foundArtifacts.includes("the lazarus box") || foundArtifacts.includes("the harp")) &&
+        (foundArtifacts.includes("the lazarus box") || foundArtifacts.includes("the harp of lazarus")) &&
         resurrectedcontestant === false &&
         deadcast.length > 0
     ) {
