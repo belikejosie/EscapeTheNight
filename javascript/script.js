@@ -1428,7 +1428,13 @@ function contestantStandings() {
     {
         scene.button("Proceed", "newEpisode(false)");
     } else {
-        scene.button("Resimulate", "startSimulation(entirecast)");
+        const button = document.createElement("button");
+        const main = document.getElementById("main-content");
+
+        main.append(button);
+        button.setAttribute("id", "season-over-button");
+        button.setAttribute("onclick","startSimulation(entirecast)");
+        button.innerText = "Resimulate";
     }
 }
 
